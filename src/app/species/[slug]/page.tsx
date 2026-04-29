@@ -203,14 +203,23 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
           )}
 
           {/* NUTRITION */}
-          <h2>Nutrition (per 100g)</h2>
-          <p>
-            How {s.name} compares to imported equivalents on the headline nutrients consumers care
-            about.
-          </p>
-          <div style={{ maxWidth: 760 }}>
-            <NutritionBars bars={s.nutrition} />
-          </div>
+          {s.nutrition && s.nutrition.length > 0 ? (
+            <>
+              <h2>Nutrition (per 100g)</h2>
+              <p>
+                How {s.name} compares to imported equivalents on the headline nutrients consumers
+                care about.
+              </p>
+              <div style={{ maxWidth: 760 }}>
+                <NutritionBars bars={s.nutrition} />
+              </div>
+            </>
+          ) : s.productType === "non-food-byproduct" ? (
+            <div className="callout">
+              <strong>Not a food product.</strong> {s.name} is a {s.productType.replace(/-/g, " ")} —
+              we deliberately do not publish nutrition data for non-food items.
+            </div>
+          ) : null}
 
           {/* CONTAMINANTS & PRICE */}
           {(s.mercury || s.antibiotics || s.priceRange) && (

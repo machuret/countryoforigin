@@ -1,10 +1,21 @@
 import Link from "next/link";
 import { homeStats } from "@/data/content/site-stats";
+import { WaveAnimation } from "@/components/ui/wave-animation-1";
 
 export function HomeHero() {
   return (
     <section className="hero">
       <div className="hero-bg-circles" />
+      <div className="hero-wave" aria-hidden="true">
+        <WaveAnimation
+          waveSpeed={1.6}
+          waveIntensity={6}
+          pointSize={1.4}
+          gridDistance={5}
+          particleColor="#2ec4a0"
+          className="hero-wave__canvas"
+        />
+      </div>
       <div className="hero-content">
         <div>
           <div className="hero-tag">Australian Seafood Authority</div>

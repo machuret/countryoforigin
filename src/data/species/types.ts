@@ -2,6 +2,19 @@ import type { Entity, Slug } from "../types";
 
 export type SourcingType = "wild" | "farmed" | "both";
 
+/**
+ * What this record actually is. Drives whether nutrition / mercury / contaminant
+ * blocks even apply. Most species are edible; non-food-byproduct (e.g. pearls)
+ * exists in the catalogue for cultural/economic reasons but should not pretend
+ * to have nutrition data.
+ */
+export type ProductType =
+  | "finfish"
+  | "crustacean"
+  | "mollusc"
+  | "cephalopod"
+  | "non-food-byproduct";
+
 export type NutBar = {
   name: string;
   aus: number;
@@ -132,11 +145,17 @@ export type MediaWatchEntry = {
 export type Species = Entity & {
   scientific?: string;
   sourcing: SourcingType;
+  /** Defaults to "finfish" if absent, for backwards compatibility. */
+  productType?: ProductType;
   emoji: string;
   cls: string;
   tags: string[];
   flavour?: string;
-  nutrition: NutBar[];
+  /**
+   * Optional. Should be **omitted** for non-food-byproduct entries (e.g. pearls)
+   * unless the edible by-product (e.g. pearl meat) has cited nutrition data.
+   */
+  nutrition?: NutBar[];
 
   /* PHASE 2 — DEEP CONTENT */
   importedFrom?: string;

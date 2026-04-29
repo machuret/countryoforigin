@@ -6,6 +6,7 @@ import { speciesDeep } from "./deep";
 
 export type {
   SourcingType,
+  ProductType,
   NutBar,
   SeasonStatus,
   SeasonalityMonth,

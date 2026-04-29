@@ -70,7 +70,7 @@ export default async function ComparisonDetail({ params }: { params: Promise<Par
             <CompareCard data={c} />
           </div>
 
-          {sp && (
+          {sp && sp.nutrition && sp.nutrition.length > 0 && (
             <>
               <h2 style={{ marginTop: "3rem" }}>Nutrition (per 100g)</h2>
               <p>How {sp.name} compares to imported equivalents on key nutrients.</p>

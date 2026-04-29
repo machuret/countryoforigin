@@ -672,21 +672,17 @@ export const species: Species[] = [
     slug: "pearls",
     name: "Australian South Sea Pearls",
     scientific: "Pinctada maxima",
-    tagline: "Cultural & industry icon",
+    tagline: "Cultural & industry icon — non-food product",
     sourcing: "farmed",
+    productType: "non-food-byproduct",
     emoji: "✨",
     cls: "sc-barramundi",
     tags: ["World's Finest Cultured Pearls", "Pinctada Maxima", "Broome Heritage"],
     summary:
-      "Australia is the world's leading source of South Sea pearls — farmed off the Kimberley coast in WA. Pearl meat is also a delicacy. The pearling industry has deep Indigenous and multicultural heritage.",
-    flavour: "Pearl meat: crisp, sweet, with a melon-like aroma",
-    nutrition: [
-      { name: "Protein", aus: 19.5, imp: 17.0, max: 25, unit: "g" },
-      { name: "Selenium", aus: 60, imp: 45, max: 100, unit: "µg" },
-      { name: "Iron", aus: 4.4, imp: 3.1, max: 7, unit: "mg" },
-      { name: "Vitamin B12", aus: 1.1, imp: 0.7, max: 2, unit: "µg" },
-      { name: "Zinc", aus: 2.7, imp: 2.0, max: 5, unit: "mg" },
-    ],
+      "Australia is the world's leading source of South Sea pearls — cultured from Pinctada maxima oysters in the Kimberley region of WA. Pearls themselves are a non-food product; the adductor muscle (pearl meat) is occasionally sold as a delicacy but no widely-cited Australian-vs-imported nutrition dataset exists for it. The pearling industry has deep Indigenous, Japanese, Malay and Filipino heritage and remains an important employer in remote WA.",
+    flavour: "Pearl meat (rare by-product): crisp, sweet, melon-like aroma",
+    /* nutrition intentionally omitted — primary product is non-food.
+     * See ProductType discriminator + audit/CONTENT_AUDIT.md. */
     importedFrom: "Japan (Akoya), China (freshwater), French Polynesia (Tahitian)",
     importedRisks: [
       "Smaller pearls (Akoya/freshwater) are not interchangeable with South Sea",

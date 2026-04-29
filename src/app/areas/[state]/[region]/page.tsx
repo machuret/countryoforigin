@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { EntityHero } from "@/components/EntityHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { areaBySlug, allAreaSlugs } from "@/data/areas";
+import { areaBySlug, regionsOnly, areaUrl } from "@/data/areas";
 
-type Params = { slug: string };
+type Params = { state: string; region: string };
 
 export async function generateStaticParams(): Promise<Params[]> {
-  return allAreaSlugs().map((slug) => ({ slug }));
+  return regionsOnly().map((r) => ({
+    state: r.parentState ?? "",
+    region: r.slug,
+  }));
 }
 
 export async function generateMetadata({
@@ -16,30 +20,33 @@ export async function generateMetadata({
 }: {
   params: Promise<Params>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const a = areaBySlug(slug);
-  if (!a) return {};
+  const { region } = await params;
+  const a = areaBySlug(region);
+  if (!a || a.type !== "region") return {};
   return {
     title: a.meta?.title ?? `${a.name} — Australian Seafood Guide`,
     description: a.meta?.description ?? a.summary,
   };
 }
 
-export default async function AreaDetail({ params }: { params: Promise<Params> }) {
-  const { slug } = await params;
-  const a = areaBySlug(slug);
-  if (!a) notFound();
+export default async function RegionDetail({ params }: { params: Promise<Params> }) {
+  const { state, region } = await params;
+  const a = areaBySlug(region);
+  if (!a || a.type !== "region" || a.parentState !== state) notFound();
 
-  const eyebrow =
-    a.type === "state" ? `Australian State · ${a.state ?? ""}` : `Region · ${a.state ?? ""}`;
+  const parent = areaBySlug(state);
 
   return (
     <PageShell>
       <EntityHero
-        eyebrow={eyebrow.trim()}
+        eyebrow={`Region · ${a.state ?? ""}`}
         title={a.name}
         lede={a.summary}
-        back={{ href: "/areas", label: "All states & regions" }}
+        back={
+          parent
+            ? { href: areaUrl(parent), label: `Back to ${parent.name}` }
+            : { href: "/areas", label: "All areas" }
+        }
       >
         {a.tagline && (
           <div
@@ -52,6 +59,14 @@ export default async function AreaDetail({ params }: { params: Promise<Params> }
             }}
           >
             {a.tagline}
+          </div>
+        )}
+        {parent && (
+          <div style={{ marginTop: "1rem", fontSize: "0.9rem", color: "var(--text-mid)" }}>
+            Part of{" "}
+            <Link href={areaUrl(parent)} style={{ color: "var(--teal)", fontWeight: 600 }}>
+              {parent.name}
+            </Link>
           </div>
         )}
       </EntityHero>

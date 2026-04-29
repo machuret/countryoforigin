@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { SeafoodCompareTabs } from "@/components/SeafoodCompareTabs";
 import { species } from "@/data/species";
 import { industries } from "@/data/industries";
-import { statesOnly, regionsOnly } from "@/data/areas";
+import { statesOnly, regionsOnly, areaUrl } from "@/data/areas";
 
 export default function Home() {
   const featuredSpecies = species.slice(0, 6);
@@ -226,7 +226,7 @@ export default function Home() {
             {allAreas.map((a) => (
               <Link
                 key={a.slug}
-                href={`/areas/${a.slug}`}
+                href={areaUrl(a)}
                 className="seafood-card"
                 style={{ textDecoration: "none", color: "inherit" }}
               >

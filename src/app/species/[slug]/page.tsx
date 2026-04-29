@@ -15,6 +15,18 @@ import { comparisonBySlug } from "@/data/comparisons";
 import { areaBySlug, areaUrl } from "@/data/areas";
 import { citationById } from "@/data/citations";
 import { recipeBySlug } from "@/data/recipes";
+import {
+  StockStatusBadge,
+  ProductionChart,
+  ContaminantsTable,
+  SupplyChainTimeline,
+  LookAlikesTable,
+  RegulationsBlock,
+  KeyOperators,
+  HistoryTimeline,
+  MediaWatch,
+  GearList,
+} from "@/components/SpeciesDeep";
 
 type Params = { slug: string };
 
@@ -76,6 +88,11 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
             <strong style={{ color: "var(--navy)" }}>Flavour:</strong> {s.flavour}
           </div>
         )}
+        {s.stockStatus && (
+          <div style={{ marginTop: "1.2rem" }}>
+            <StockStatusBadge status={s.stockStatus} />
+          </div>
+        )}
       </EntityHero>
 
       {/* WHY AUSTRALIAN — 4-PILLAR QUAD */}
@@ -132,6 +149,34 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
             </>
           )}
 
+          {/* GEAR */}
+          {s.gear && s.gear.length > 0 && (
+            <>
+              <h2>How it&apos;s caught or grown</h2>
+              <GearList items={s.gear} />
+            </>
+          )}
+
+          {/* PRODUCTION CHART */}
+          {s.productionHistory && s.productionHistory.length > 0 && (
+            <>
+              <h2>Production volume (last 5 years)</h2>
+              <p>
+                Total Australian annual production of {s.name} — wild-catch + aquaculture combined.
+                Sourced from ABARES Australian Fisheries and Aquaculture Statistics.
+              </p>
+              <ProductionChart data={s.productionHistory} />
+            </>
+          )}
+
+          {/* REGULATIONS */}
+          {s.regulations && (
+            <>
+              <h2>How it&apos;s managed</h2>
+              <RegulationsBlock reg={s.regulations} />
+            </>
+          )}
+
           {/* NUTRITION */}
           <h2>Nutrition (per 100g)</h2>
           <p>
@@ -141,6 +186,35 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
           <div style={{ maxWidth: 760 }}>
             <NutritionBars bars={s.nutrition} />
           </div>
+
+          {/* CONTAMINANTS & PRICE */}
+          {(s.mercury || s.antibiotics || s.priceRange) && (
+            <>
+              <h2>Contaminants &amp; price</h2>
+              <p>
+                Australian {s.name} compared to imported equivalents on mercury, antibiotic
+                residues, and typical retail price. Unflagged metrics come from primary government
+                sources (FSANZ, ABARES); synthesised numbers carry a visible tag.
+              </p>
+              <ContaminantsTable
+                mercury={s.mercury}
+                antibiotics={s.antibiotics}
+                price={s.priceRange}
+              />
+            </>
+          )}
+
+          {/* SUPPLY CHAIN TIMELINE */}
+          {s.supplyChain && s.supplyChain.length > 0 && (
+            <>
+              <h2>From harvest to plate</h2>
+              <p>
+                Days-to-plate is one of the strongest arguments for buying Australian. Here&apos;s
+                the typical timeline for {s.name}.
+              </p>
+              <SupplyChainTimeline steps={s.supplyChain} />
+            </>
+          )}
 
           {/* SEASONALITY */}
           {s.seasonality && s.seasonality.length === 12 && (
@@ -205,6 +279,18 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
                   Read the full comparison →
                 </Link>
               </p>
+            </>
+          )}
+
+          {/* LOOK-ALIKES */}
+          {s.lookAlikes && s.lookAlikes.length > 0 && (
+            <>
+              <h2>Look-alikes &amp; how to tell them apart</h2>
+              <p>
+                Products often confused with or substituted for Australian {s.name} — and what to
+                look for instead.
+              </p>
+              <LookAlikesTable items={s.lookAlikes} />
             </>
           )}
 
@@ -297,6 +383,33 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
                   </div>
                 ))}
               </div>
+            </>
+          )}
+
+          {/* KEY OPERATORS */}
+          {s.keyOperators && s.keyOperators.length > 0 && (
+            <>
+              <h2>Key operators, co-ops &amp; peak bodies</h2>
+              <p>
+                The businesses, co-operatives, and industry bodies behind Australian {s.name}.
+              </p>
+              <KeyOperators items={s.keyOperators} />
+            </>
+          )}
+
+          {/* HISTORY */}
+          {s.history && s.history.length > 0 && (
+            <>
+              <h2>Historical timeline</h2>
+              <HistoryTimeline items={s.history} />
+            </>
+          )}
+
+          {/* MEDIA WATCH */}
+          {s.mediaWatch && s.mediaWatch.length > 0 && (
+            <>
+              <h2>In the news</h2>
+              <MediaWatch items={s.mediaWatch} />
             </>
           )}
 

@@ -22,6 +22,113 @@ export type WhyAustralianBreakdown = {
   taste: string[];
 };
 
+/* ------------------------- PHASE B — DEEP DATA ------------------------- */
+
+export type StockRating =
+  | "sustainable"
+  | "sustainable-rebuilding"
+  | "depleting"
+  | "overfished"
+  | "recovering"
+  | "undefined";
+
+export type StockStatus = {
+  rating: StockRating;
+  year: number;
+  citationId: string;
+  note?: string;
+};
+
+export type ProductionYear = {
+  year: number;
+  tonnes: number;
+  sourceId?: string;
+  provenance?: "primary" | "estimate" | "editorial";
+};
+
+export type GearMethod = {
+  method: string;
+  note?: string;
+};
+
+export type MercuryData = {
+  aus: number;              // mg/kg
+  imp: number;              // mg/kg
+  unit?: "mg/kg";
+  citationId: string;
+  provenance?: "primary" | "estimate" | "editorial";
+  note?: string;
+};
+
+export type AntibioticLevel = "none" | "rare" | "low" | "documented";
+
+export type AntibioticData = {
+  aus: AntibioticLevel;
+  imp: AntibioticLevel;
+  citationId: string;
+  provenance?: "primary" | "estimate" | "editorial";
+  note?: string;
+};
+
+export type PriceRange = {
+  ausLow: number;
+  ausHigh: number;
+  impLow: number;
+  impHigh: number;
+  unit?: "$/kg";
+  asOf: string;             // e.g. "2026 Q1"
+  provenance: "primary" | "estimate" | "editorial";
+};
+
+export type SupplyChainStep = {
+  step: string;
+  days: string;             // e.g. "1–3"
+  note?: string;
+};
+
+export type LookAlike = {
+  name: string;
+  whyConfused: string;
+  howToTell: string;
+};
+
+export type Regulations = {
+  quotaTonnes?: number;
+  bagLimit?: string;
+  sizeLimit?: string;
+  sourceId?: string;
+  note?: string;
+};
+
+export type OperatorType =
+  | "coop"
+  | "peak-body"
+  | "processor"
+  | "farm"
+  | "retailer"
+  | "research"
+  | "market";
+
+export type KeyOperator = {
+  name: string;
+  type: OperatorType;
+  region?: string;
+  url?: string;
+};
+
+export type HistoryEntry = {
+  year: number;
+  note: string;
+};
+
+export type MediaWatchEntry = {
+  outlet: string;
+  headline: string;
+  year: number;
+  url: string;
+  tier?: "primary" | "secondary";
+};
+
 export type Species = Entity & {
   scientific?: string;
   sourcing: SourcingType;
@@ -32,22 +139,28 @@ export type Species = Entity & {
   nutrition: NutBar[];
 
   /* PHASE 2 — DEEP CONTENT */
-  /** Where the imported version typically comes from */
   importedFrom?: string;
-  /** Documented risks of the imported version (bullets) */
   importedRisks?: string[];
-  /** 4-pillar Why-Australian breakdown for THIS species */
   whyAustralian?: WhyAustralianBreakdown;
-  /** 12-month seasonality grid (Jan→Dec) */
   seasonality?: SeasonalityMonth[];
-  /** Cooking methods + notes */
   cookingNotes?: CookingNote[];
-  /** "Look for…" hint shown to the consumer */
   labelingHint?: string;
-  /** Citation ids referenced on the species page (live in citations.ts) */
   citationIds?: string[];
-  /** Strongest geographic associations — slugs of areas */
   signatureRegions?: Slug[];
+
+  /* PHASE B — DEEP DATA (all optional, species-by-species rollout) */
+  stockStatus?: StockStatus;
+  productionHistory?: ProductionYear[];
+  gear?: GearMethod[];
+  mercury?: MercuryData;
+  antibiotics?: AntibioticData;
+  priceRange?: PriceRange;
+  supplyChain?: SupplyChainStep[];
+  lookAlikes?: LookAlike[];
+  regulations?: Regulations;
+  keyOperators?: KeyOperator[];
+  history?: HistoryEntry[];
+  mediaWatch?: MediaWatchEntry[];
 };
 
 /* Helper: build a 12-month seasonality array. Pass a peak set and good set. */
@@ -1785,7 +1898,39 @@ export const oysterVarieties: OysterVariety[] = [
 ];
 
 /* Helpers */
-export const speciesBySlug = (slug: Slug): Species | undefined =>
-  species.find((s) => s.slug === slug);
+import { speciesDeep } from "./species-deep";
+
+/**
+ * Merge the Phase-B deep-data overlay for this species (if any) into
+ * the base species object. Fields set on the base species object take
+ * precedence — the overlay only fills undefined fields. This means
+ * future migration of overlay → base record is a no-op.
+ */
+function withDeep(s: Species): Species {
+  const deep = speciesDeep[s.slug];
+  if (!deep) return s;
+  return {
+    ...deep,
+    ...s, // base wins
+    // merge arrays where base is undefined
+    productionHistory: s.productionHistory ?? deep.productionHistory,
+    gear: s.gear ?? deep.gear,
+    supplyChain: s.supplyChain ?? deep.supplyChain,
+    lookAlikes: s.lookAlikes ?? deep.lookAlikes,
+    keyOperators: s.keyOperators ?? deep.keyOperators,
+    history: s.history ?? deep.history,
+    mediaWatch: s.mediaWatch ?? deep.mediaWatch,
+    stockStatus: s.stockStatus ?? deep.stockStatus,
+    mercury: s.mercury ?? deep.mercury,
+    antibiotics: s.antibiotics ?? deep.antibiotics,
+    priceRange: s.priceRange ?? deep.priceRange,
+    regulations: s.regulations ?? deep.regulations,
+  };
+}
+
+export const speciesBySlug = (slug: Slug): Species | undefined => {
+  const s = species.find((x) => x.slug === slug);
+  return s ? withDeep(s) : undefined;
+};
 
 export const allSpeciesSlugs = (): Slug[] => species.map((s) => s.slug);

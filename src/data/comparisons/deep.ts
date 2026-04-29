@@ -226,7 +226,7 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
       unit: "Australian FTE jobs per tonne (estuary clusters)",
       citationId: "oysters-australia",
     },
-    freshnessDays: { ausValue: 2, impValue: 21, unit: "days harvest-to-plate (live)" },
+    freshnessDays: { ausValue: 2, impValue: 21, unit: "days harvest-to-plate (live)", citationId: "editorial-freshness-estimates" },
     welfare: { aus: "Bivalves; rope/rack culture; nil welfare concern", imp: "Bivalves; nil welfare concern" },
     mislabellingRisk: {
       aus: "Very low",
@@ -243,7 +243,7 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
       "Imported abalone (China, Chile, Mexico) is cheaper but variable in quality. Wild Tasmanian and Victorian abalone is the world's premium product, exported live and rarely undersold.",
     carbon: { ausValue: 4.0, impValue: 13.0, unit: "kg CO₂e per kg", citationId: "editorial-carbon-footprint" },
     jobs: { ausValue: 6, impValue: 0, unit: "Australian FTE per tonne", citationId: "frdc-economic-contribution" },
-    freshnessDays: { ausValue: 3, impValue: 21, unit: "days dive-to-table (live)" },
+    freshnessDays: { ausValue: 3, impValue: 21, unit: "days dive-to-table (live)", citationId: "editorial-freshness-estimates" },
     welfare: { aus: "Hand-dive harvest; minimal bycatch", imp: "Often farmed in tanks or sea cages" },
     mislabellingRisk: { aus: "Very low", imp: "Moderate — meat substitution documented in canned product" },
     traceability: { aus: "Diver-tag and quota documentation", imp: "Variable" },
@@ -255,8 +255,8 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
     priceContext:
       "European Mediterranean mussels are cheap and ubiquitous in tinned form; Australian mussels are mostly fresh from long-lines in Spring Bay (TAS), Port Phillip (VIC) and Boston Bay (SA).",
     carbon: { ausValue: 1.5, impValue: 5.5, unit: "kg CO₂e per kg", note: "Bivalves are among the lowest-impact proteins.", citationId: "editorial-carbon-footprint" },
-    jobs: { ausValue: 7, impValue: 0, unit: "Australian FTE per tonne" },
-    freshnessDays: { ausValue: 2, impValue: 30, unit: "days harvest-to-retail" },
+    jobs: { ausValue: 7, impValue: 0, unit: "Australian FTE per tonne", citationId: "editorial-jobs-estimates" },
+    freshnessDays: { ausValue: 2, impValue: 30, unit: "days harvest-to-retail", citationId: "editorial-freshness-estimates" },
     welfare: { aus: "No welfare concern (bivalve)", imp: "No welfare concern (bivalve)" },
     mislabellingRisk: { aus: "Very low", imp: "Low" },
     traceability: { aus: "Lease-to-plate", imp: "Variable" },
@@ -267,8 +267,8 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
   "rocklobster-aus-vs-imported": {
     priceContext: "Imported lobster (US, Canada, NZ) is cheaper at scale; Australian Eastern and Southern rock lobster is premium, MSC-aligned and largely exported.",
     carbon: { ausValue: 8.0, impValue: 18.0, unit: "kg CO₂e per kg", note: "Live air-freighted lobster is high-carbon regardless of origin.", citationId: "icct-air-freight" },
-    jobs: { ausValue: 9, impValue: 0, unit: "Australian FTE per tonne" },
-    freshnessDays: { ausValue: 3, impValue: 14, unit: "days pot-to-plate (live)" },
+    jobs: { ausValue: 9, impValue: 0, unit: "Australian FTE per tonne", citationId: "editorial-jobs-estimates" },
+    freshnessDays: { ausValue: 3, impValue: 14, unit: "days pot-to-plate (live)", citationId: "editorial-freshness-estimates" },
     welfare: { aus: "Pot-caught; live transport in oxygenated tanks", imp: "Mostly trap-caught; mixed conditions" },
     mislabellingRisk: { aus: "Very low", imp: "Low" },
     traceability: { aus: "Tag-to-plate; quota documented", imp: "Variable" },
@@ -278,9 +278,9 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
 
   "western-rocklobster-aus-vs-imported": {
     priceContext: "Imported alternatives (US/Canada lobster, NZ packhorse) are cheaper. WRL is the world's largest single-species lobster fishery and has held MSC certification since 2000.",
-    carbon: { ausValue: 7.5, impValue: 18.0, unit: "kg CO₂e per kg" },
+    carbon: { ausValue: 7.5, impValue: 18.0, unit: "kg CO₂e per kg", citationId: "editorial-carbon-footprint" },
     jobs: { ausValue: 9, impValue: 0, unit: "Australian FTE per tonne", citationId: "frdc-economic-contribution" },
-    freshnessDays: { ausValue: 3, impValue: 14, unit: "days pot-to-plate (live)" },
+    freshnessDays: { ausValue: 3, impValue: 14, unit: "days pot-to-plate (live)", citationId: "editorial-freshness-estimates" },
     welfare: { aus: "Pot-caught; oxygenated live transport", imp: "Mixed" },
     mislabellingRisk: { aus: "Very low", imp: "Low" },
     traceability: { aus: "Tag-to-plate via Geraldton co-op chain", imp: "Variable" },
@@ -299,7 +299,7 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
   "snapper-aus-vs-imported": {
     priceContext: "Imported 'snapper' is often a different species (cheaper rosy snapper, rockfish or basa) sold under fraudulent labels — a long-running issue addressed by AFNS and CoOL rules.",
     mislabellingRisk: { aus: "Low (AFNS-protected)", imp: "High — DNA tests find frequent substitution", citationId: "amcs-dna" },
-    freshnessDays: { ausValue: 2, impValue: 21, unit: "days catch-to-plate" },
+    freshnessDays: { ausValue: 2, impValue: 21, unit: "days catch-to-plate", citationId: "editorial-freshness-estimates" },
     bottomLine: "Buy AFNS-named Australian snapper to avoid the most-mislabelled fish category in the country.",
     citationIds: ["amcs-dna", "aff-fish-names-standard", "info-standard-2025"],
   },
@@ -333,7 +333,7 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
 
   "kingfish-aus-vs-imported": {
     priceContext: "Imported yellowtail (Japanese hamachi) is cheaper; Australian yellowtail kingfish is farmed at scale in SA and is sashimi-grade fresh.",
-    freshnessDays: { ausValue: 2, impValue: 14, unit: "days harvest-to-plate" },
+    freshnessDays: { ausValue: 2, impValue: 14, unit: "days harvest-to-plate", citationId: "editorial-freshness-estimates" },
     bottomLine: "Australian kingfish offers Japan-grade quality without Japan-grade air miles.",
     citationIds: ["frdc-economic-contribution", "icct-air-freight"],
   },
@@ -393,8 +393,8 @@ export const comparisonsDeep: Record<string, Partial<Comparison>> = {
 
   "sardines-aus-vs-imported": {
     priceContext: "Imported tinned sardines from Portugal, Spain and Morocco are cheaper and have iconic branding. Australian sardines are mostly sold fresh from SA's Coffin Bay fleet.",
-    carbon: { ausValue: 1.0, impValue: 5.5, unit: "kg CO₂e per kg" },
-    jobs: { ausValue: 5, impValue: 0, unit: "Australian FTE per tonne" },
+    carbon: { ausValue: 1.0, impValue: 5.5, unit: "kg CO₂e per kg", citationId: "editorial-carbon-footprint" },
+    jobs: { ausValue: 5, impValue: 0, unit: "Australian FTE per tonne", citationId: "editorial-jobs-estimates" },
     bottomLine: "Australian fresh sardines are an underused, low-carbon, omega-3-rich seafood. Try them grilled on toast.",
     citationIds: ["frdc-economic-contribution", "editorial-carbon-footprint"],
   },

@@ -1,4 +1,6 @@
 import type { CompareNumeric, CompareQualitative } from "@/data/comparisons";
+import { citationById } from "@/data/citations";
+import { Citation, ProvenanceBadge } from "@/components/Citation";
 
 /** Two horizontal bars representing AUS vs IMP numeric values */
 export function VersusBar({
@@ -73,9 +75,15 @@ export function NumericCompareCard({
   ausGood?: boolean;
 }) {
   if (!data || data.ausValue == null || data.impValue == null) return null;
+  const cite = data.citationId ? citationById(data.citationId) : null;
   return (
     <div className="deep-card">
-      <h3>{title}</h3>
+      <h3>
+        {title}
+        {cite && (cite.tier === "estimate" || cite.tier === "editorial") && (
+          <ProvenanceBadge tier={cite.tier} inline />
+        )}
+      </h3>
       <VersusBar
         ausValue={data.ausValue}
         impValue={data.impValue}
@@ -84,6 +92,11 @@ export function NumericCompareCard({
       />
       {data.unit && <p className="deep-muted">{data.unit}</p>}
       {data.note && <p className="deep-muted">{data.note}</p>}
+      {data.citationId && (
+        <p className="deep-muted" style={{ marginTop: "0.5rem" }}>
+          Source: <Citation id={data.citationId} />
+        </p>
+      )}
     </div>
   );
 }

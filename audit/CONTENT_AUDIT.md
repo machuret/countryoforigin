@@ -11,7 +11,7 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | Species | 25 | 0 |
 | Industries | 5 | — |
 | Areas | 60 | — |
-| Comparisons | 25 | 8 |
+| Comparisons | 25 | 0 |
 | Recipes | 23 | — |
 | FAQ | 21 | 1 |
 | Myths | 14 | 2 |
@@ -131,18 +131,18 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | `salmon-aus-vs-norway` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 traceability unsourced |
 | `prawns-aus-vs-asia` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 traceability unsourced |
 | `tuna-southern-bluefin-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 traceability unsourced |
-| `oysters-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🚨 freshness claim w/ no source<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
-| `abalone-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🚨 freshness claim w/ no source<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
-| `mussels-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🚨 jobs claim w/ no source<br>🚨 freshness claim w/ no source<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
-| `rocklobster-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🚨 jobs claim w/ no source<br>🚨 freshness claim w/ no source<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
-| `western-rocklobster-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🚨 carbon claim w/ no source<br>🚨 freshness claim w/ no source<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
+| `oysters-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
+| `abalone-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
+| `mussels-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
+| `rocklobster-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
+| `western-rocklobster-aus-vs-imported` | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced<br>🔶 traceability unsourced |
 | `pearls-aus-vs-imported` | 6 | — | — | — | ✅ | — | ✅ | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 traceability unsourced |
-| `snapper-aus-vs-imported` | 6 | — | — | ✅ | — | ✅ | — | 0 | 🔶 no citationIds<br>🚨 freshness claim w/ no source |
+| `snapper-aus-vs-imported` | 6 | — | — | ✅ | — | ✅ | — | 0 | 🔶 no citationIds |
 | `flathead-aus-vs-imported` | 6 | — | — | — | — | ✅ | — | 0 | 🔶 no citationIds |
 | `whiting-aus-vs-imported` | 6 | — | — | — | — | ✅ | — | 0 | 🔶 no citationIds<br>🔶 mislabelling unsourced |
 | `bream-aus-vs-imported` | 5 | — | — | — | — | ✅ | — | 0 | 🔶 no citationIds<br>🔶 mislabelling unsourced |
 | `mulloway-aus-vs-imported` | 6 | — | — | — | — | — | — | 0 | 🔶 no citationIds |
-| `kingfish-aus-vs-imported` | 6 | — | — | ✅ | — | — | — | 0 | 🔶 no citationIds<br>🚨 freshness claim w/ no source |
+| `kingfish-aus-vs-imported` | 6 | — | — | ✅ | — | — | — | 0 | 🔶 no citationIds |
 | `mahi-aus-vs-imported` | 5 | — | — | — | — | — | — | 0 | 🔶 no citationIds |
 | `coral-trout-aus-vs-imported` | 5 | — | — | — | — | — | — | 0 | 🔶 no citationIds |
 | `mud-crab-aus-vs-imported` | 5 | — | — | — | ✅ | — | — | 0 | 🔶 no citationIds |
@@ -151,7 +151,7 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | `scallops-aus-vs-imported` | 5 | — | — | — | ✅ | ✅ | — | 0 | 🔶 no citationIds<br>🔶 welfare unsourced<br>🔶 mislabelling unsourced |
 | `calamari-aus-vs-imported` | 5 | — | — | — | — | ✅ | — | 0 | 🔶 no citationIds<br>🔶 mislabelling unsourced |
 | `octopus-aus-vs-imported` | 5 | — | — | — | ✅ | — | — | 0 | 🔶 no citationIds<br>🔶 welfare unsourced |
-| `sardines-aus-vs-imported` | 5 | ✅ | ✅ | — | — | — | — | 0 | 🔶 no citationIds<br>🚨 carbon claim w/ no source<br>🚨 jobs claim w/ no source |
+| `sardines-aus-vs-imported` | 5 | ✅ | ✅ | — | — | — | — | 0 | 🔶 no citationIds |
 
 ## Recipes (23)
 

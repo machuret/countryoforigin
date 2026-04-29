@@ -12,7 +12,15 @@ export type NavGroup = { label: string; items: NavItem[] };
  * - mobile drawer (hamburger toggle, focus trap-lite, body scroll lock)
  * - animated transitions (opacity/transform/visibility)
  */
-export function NavBar({ groups, top }: { groups: NavGroup[]; top: NavItem[] }) {
+export function NavBar({
+  groups,
+  top,
+  search,
+}: {
+  groups: NavGroup[];
+  top: NavItem[];
+  search?: React.ReactNode;
+}) {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
@@ -81,6 +89,7 @@ export function NavBar({ groups, top }: { groups: NavGroup[]; top: NavItem[] }) 
             {l.label}
           </Link>
         ))}
+        {search}
         <Link
           href="/compare"
           className="nav-cta"

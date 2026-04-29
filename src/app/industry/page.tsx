@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { industries } from "@/data/industries";
+import {
+  CatchByStateChart,
+  GVPByStateChart,
+  StockStatusBreakdown,
+  MercuryComparisonChart,
+  IndustryHeadlines,
+  ProcessorTypeBreakdown,
+} from "@/components/dashboards";
 
 export const metadata: Metadata = {
   title: "Australian Seafood Industries — Country of Origin",
@@ -28,6 +36,30 @@ export default function IndustryIndex() {
 
       <section className="index-section">
         <div className="index-inner">
+          <h2 style={{ fontFamily: "var(--f-serif)", fontSize: "var(--fs-h2)", marginBottom: "0.6rem", color: "var(--navy)" }}>
+            By the numbers
+          </h2>
+          <p style={{ color: "var(--text-mid)", maxWidth: 720, marginBottom: "1.5rem" }}>
+            Six visualisations of the dataset that powers this site — each
+            redraws automatically when the underlying records change. Every
+            figure traces back to a primary citation.
+          </p>
+          <div className="dashboards-grid">
+            <div className="dashboard-figure--full">
+              <IndustryHeadlines />
+            </div>
+            <CatchByStateChart />
+            <GVPByStateChart />
+            <StockStatusBreakdown />
+            <ProcessorTypeBreakdown />
+            <div className="dashboard-figure--full">
+              <MercuryComparisonChart />
+            </div>
+          </div>
+
+          <h2 style={{ fontFamily: "var(--f-serif)", fontSize: "var(--fs-h2)", margin: "3rem 0 1.5rem", color: "var(--navy)" }}>
+            Five pillars of Australian seafood
+          </h2>
           <div className="index-grid">
             {industries.map((i) => (
               <Link key={i.slug} href={`/industry/${i.slug}`} className="index-card">

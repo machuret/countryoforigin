@@ -16,6 +16,9 @@ import { comparisonBySlug } from "@/data/comparisons";
 import { areaBySlug, areaUrl } from "@/data/areas";
 import { citationById } from "@/data/citations";
 import { recipeBySlug } from "@/data/content/recipes";
+import { JsonLd } from "@/components/JsonLd";
+import { articleSchema, breadcrumbListSchema } from "@/lib/jsonld";
+import { site } from "@/config/site";
 import {
   StockStatusBadge,
   ProductionChart,
@@ -73,6 +76,20 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
 
   return (
     <PageShell>
+      <JsonLd
+        data={articleSchema({
+          url: `${site.baseUrl}/species/${s.slug}`,
+          headline: s.name,
+          description: s.summary,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: "Home", url: site.baseUrl },
+          { name: "Species", url: `${site.baseUrl}/species` },
+          { name: s.name, url: `${site.baseUrl}/species/${s.slug}` },
+        ])}
+      />
       <Breadcrumbs
         items={[
           { href: "/", label: "Home" },

@@ -3,6 +3,8 @@ import { PageShell } from "@/components/PageShell";
 import { EntityHero } from "@/components/EntityHero";
 import { Citation, CitationList } from "@/components/Citation";
 import { faqs, type FaqEntry } from "@/data/content/faq";
+import { JsonLd } from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Seafood FAQ — Country of Origin",
@@ -32,6 +34,7 @@ export default function FaqPage() {
 
   return (
     <PageShell>
+      <JsonLd data={faqPageSchema(faqs.map((f) => ({ q: f.q, a: f.a })))} />
       <EntityHero
         eyebrow="Reference"
         title="Frequently asked questions"

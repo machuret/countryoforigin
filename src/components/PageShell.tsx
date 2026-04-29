@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { NavBar, type NavItem, type NavGroup } from "./NavBar";
+import { SearchPalette } from "./SearchPalette";
+import { buildSearchIndex } from "@/lib/searchIndex";
 
 /**
  * Shared shell — every page wraps its content in <PageShell>...</PageShell>
@@ -38,9 +40,14 @@ const NAV_GROUPS: NavGroup[] = [
 ];
 
 export function PageShell({ children }: { children: React.ReactNode }) {
+  const searchIndex = buildSearchIndex();
   return (
     <>
-      <NavBar groups={NAV_GROUPS} top={NAV_TOP} />
+      <NavBar
+        groups={NAV_GROUPS}
+        top={NAV_TOP}
+        search={<SearchPalette index={searchIndex} />}
+      />
 
       {children}
 

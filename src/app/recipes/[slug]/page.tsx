@@ -6,6 +6,10 @@ import { EntityHero } from "@/components/EntityHero";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { recipeBySlug, allRecipeSlugs } from "@/data/content/recipes";
 import { speciesBySlug } from "@/data/species";
+import { RecipeSuppliers } from "@/components/recipes/RecipeSuppliers";
+import { JsonLd } from "@/components/JsonLd";
+import { recipeSchema, breadcrumbListSchema } from "@/lib/jsonld";
+import { site } from "@/config/site";
 
 type Params = { slug: string };
 
@@ -35,6 +39,26 @@ export default async function RecipeDetail({ params }: { params: Promise<Params>
 
   return (
     <PageShell>
+      <JsonLd
+        data={recipeSchema({
+          url: `${site.baseUrl}/recipes/${r.slug}`,
+          name: r.name,
+          description: r.summary,
+          prepMin: r.prepMin,
+          cookMin: r.cookMin,
+          servings: r.servings,
+          ingredients: r.ingredients,
+          instructions: r.method,
+          pairing: r.pairing,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: "Home", url: site.baseUrl },
+          { name: "Recipes", url: `${site.baseUrl}/recipes` },
+          { name: r.name, url: `${site.baseUrl}/recipes/${r.slug}` },
+        ])}
+      />
       <Breadcrumbs
         items={[
           { href: "/", label: "Home" },
@@ -237,6 +261,10 @@ export default async function RecipeDetail({ params }: { params: Promise<Params>
                 </p>
               </div>
             )}
+
+            <div style={{ marginTop: "2.5rem" }}>
+              <RecipeSuppliers speciesSlug={r.speciesSlug} />
+            </div>
 
             {sp && (
               <div style={{ marginTop: "2.5rem" }}>

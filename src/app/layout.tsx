@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/jsonld";
 
 /**
  * Variable-axis fonts. Google Fonts ships Playfair Display and Barlow
@@ -76,7 +78,10 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${barlow.variable} ${barlowCondensed.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <JsonLd data={organizationSchema()} />
+        {children}
+      </body>
     </html>
   );
 }

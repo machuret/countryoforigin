@@ -13,7 +13,9 @@ export default function Home() {
           <a href="#compare">Compare</a>
           <a href="#seafood">Our Seafood</a>
           <a href="#nutrition">Nutrition</a>
+          <a href="#tuna">Tuna</a>
           <a href="#environment">Environment</a>
+          <a href="#indigenous">First Peoples</a>
           <a href="#economy">Economy</a>
           <a href="#labels">Reading Labels</a>
           <a href="#compare" className="nav-cta">
@@ -504,6 +506,255 @@ export default function Home() {
             <div className="env-banner-num">
               <strong>85%</strong>
               <span>of global fisheries are fully exploited, overexploited or depleted</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TUNA DEEP-DIVE */}
+      <section className="tuna-section" id="tuna">
+        <div className="tuna-inner">
+          <span className="tuna-eyebrow">Spotlight Species</span>
+          <h1 className="tuna-title">
+            Southern Bluefin Tuna — <em>Australia&apos;s great recovery story</em>
+          </h1>
+          <p className="tuna-lede">
+            Once on the brink of collapse, Southern Bluefin Tuna is now a model of international
+            cooperation. Australia leads ranching, fattening, and quota-managed wild capture in the
+            Great Australian Bight — turning what was a cautionary tale into one of the world&apos;s
+            most rigorous fisheries.
+          </p>
+          <div className="tuna-grid">
+            <div className="tuna-card">
+              <div className="num">1994</div>
+              <h4>CCSBT Established</h4>
+              <p>
+                Commission for the Conservation of Southern Bluefin Tuna brings Australia, Japan,
+                New Zealand, and others under a binding global quota.
+              </p>
+            </div>
+            <div className="tuna-card">
+              <div className="num">~6,000t</div>
+              <h4>Australian Quota</h4>
+              <p>
+                Annual catch limit set by international agreement. Every fish is tagged, weighed,
+                and traceable from sea cage to plate.
+              </p>
+            </div>
+            <div className="tuna-card">
+              <div className="num">$200M+</div>
+              <h4>Industry Value</h4>
+              <p>
+                Port Lincoln, SA is the country&apos;s tuna capital — supporting thousands of jobs
+                and generating major export revenue, predominantly to Japan&apos;s sashimi market.
+              </p>
+            </div>
+            <div className="tuna-card">
+              <div className="num">3–5°C</div>
+              <h4>Cold-water Ranching</h4>
+              <p>
+                Wild juvenile tuna are towed in cages from the Bight to Port Lincoln, where they
+                are fed and fattened over 3–6 months before harvest.
+              </p>
+            </div>
+            <div className="tuna-card">
+              <div className="num">100%</div>
+              <h4>Catch Documented</h4>
+              <p>
+                Australia&apos;s catch documentation scheme verifies every fish, supporting a
+                premium-priced, transparent global market for Southern Bluefin.
+              </p>
+            </div>
+            <div className="tuna-card">
+              <div className="num">Recovering</div>
+              <h4>Stock Status</h4>
+              <p>
+                Stock is rebuilding from historic lows. Scientific assessments now classify Southern
+                Bluefin as not overfished — but management remains conservative.
+              </p>
+            </div>
+          </div>
+          <div className="tuna-callout">
+            <strong>Why it matters</strong>
+            <p>
+              Choosing Australian Southern Bluefin Tuna means supporting one of the few large-scale
+              fisheries that has demonstrably reversed decline through international science and
+              quota discipline. Imported &ldquo;tuna&rdquo; is often Yellowfin or Bigeye from
+              fisheries with far weaker management.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* INDIGENOUS FISHING */}
+      <section className="pillar-section" id="indigenous">
+        <div className="pillar-inner">
+          <span className="section-tag">First Peoples</span>
+          <h2 className="section-title">Indigenous Fishing — 65,000 Years of Stewardship</h2>
+          <p className="section-desc">
+            Aboriginal and Torres Strait Islander peoples have managed Australia&apos;s coastal and
+            inland waters for millennia. Their knowledge, customary rights, and growing commercial
+            footprint are central to the future of Australian seafood.
+          </p>
+          <div className="pillar-grid">
+            <div className="pillar-feature-card">
+              <h3>Customary &amp; Cultural Fishing</h3>
+              <p>
+                Customary fishing rights are protected under Native Title and state legislation.
+                Traditional Owners harvest fish, shellfish, dugong, and turtle for subsistence,
+                ceremony, and cultural transmission, governed by lore that long predates
+                European-style fisheries management.
+              </p>
+              <ul className="pillar-list">
+                <li>Recognised under the Native Title Act 1993</li>
+                <li>Sea Country includes inter-tidal zones and offshore waters</li>
+                <li>Knowledge of seasonal indicators and breeding cycles informs modern science</li>
+                <li>Backed by Indigenous Land &amp; Sea Management Programs</li>
+              </ul>
+            </div>
+            <div>
+              <div className="pillar-feature-card" style={{ marginBottom: "1.5rem" }}>
+                <h3>Indigenous Commercial Fisheries</h3>
+                <p>
+                  Indigenous-owned commercial operations are growing rapidly across Northern
+                  Territory, Cape York, the Torres Strait and parts of WA — covering pearling,
+                  trochus, beche-de-mer, mud crab, and finfish.
+                </p>
+                <div className="pillar-stats">
+                  <div className="pillar-stat">
+                    <strong>$50M+</strong>
+                    <span>Estimated annual value of Indigenous commercial fisheries</span>
+                  </div>
+                  <div className="pillar-stat">
+                    <strong>15%</strong>
+                    <span>Share of Australia&apos;s coastline under Indigenous management</span>
+                  </div>
+                </div>
+              </div>
+              <div className="pillar-feature-card">
+                <h3>Sea Country &amp; Ranger Programs</h3>
+                <p>
+                  Indigenous Ranger groups patrol Sea Country, monitor stocks, control invasive
+                  species, and enforce customary lore — combining traditional ecological knowledge
+                  with modern science to protect coastal ecosystems.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMMERCIAL FISHING */}
+      <section className="pillar-section dark" id="commercial">
+        <div className="pillar-inner">
+          <span className="section-tag">Working Fleets</span>
+          <h2 className="section-title">Commercial Fishing — The Backbone of Coastal Australia</h2>
+          <p className="section-desc">
+            From small family trawlers in Spencer Gulf to highly regulated demersal fleets in WA,
+            Australian commercial fisheries operate under science-based quota systems that are
+            among the most rigorous in the world.
+          </p>
+          <div className="pillar-grid">
+            <div>
+              <div className="pillar-feature-card">
+                <h3>Quota &amp; Stock Management</h3>
+                <p>
+                  Almost every Australian commercial fishery operates under either an Individual
+                  Transferable Quota (ITQ) or a Total Allowable Catch (TAC), set annually based on
+                  independent scientific stock assessments.
+                </p>
+                <ul className="pillar-list">
+                  <li>AFMA manages all Commonwealth fisheries</li>
+                  <li>State agencies manage inshore and estuarine fisheries</li>
+                  <li>Stock status reports published every two years</li>
+                  <li>Most stocks classified sustainable or recovering</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div className="pillar-feature-card" style={{ marginBottom: "1.5rem" }}>
+                <h3>Fleet &amp; Methods</h3>
+                <p>
+                  Australian fleets use a wide range of methods — pot, trap, line, trawl, and dive —
+                  selected to minimise bycatch and seabed impact.
+                </p>
+                <div className="pillar-stats">
+                  <div className="pillar-stat">
+                    <strong>3,000+</strong>
+                    <span>Commercial fishing vessels operating nationally</span>
+                  </div>
+                  <div className="pillar-stat">
+                    <strong>17,000</strong>
+                    <span>Direct jobs across catch, processing &amp; logistics</span>
+                  </div>
+                  <div className="pillar-stat">
+                    <strong>100%</strong>
+                    <span>VMS-tracked fleets in Commonwealth fisheries</span>
+                  </div>
+                  <div className="pillar-stat">
+                    <strong>$3B</strong>
+                    <span>Gross value of production annually</span>
+                  </div>
+                </div>
+              </div>
+              <div className="pillar-feature-card">
+                <h3>Regional Impact</h3>
+                <p>
+                  Fishing is the primary industry for towns from Lakes Entrance and Eden to Port
+                  Lincoln, Bowen, Karumba, and Geraldton. Local boats land local fish — a chain of
+                  custody you can&apos;t replicate with imports.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESSORS */}
+      <section className="pillar-section" id="processors">
+        <div className="pillar-inner">
+          <span className="section-tag">Processing &amp; Supply Chain</span>
+          <h2 className="section-title">Processors — Where Quality Is Locked In or Lost</h2>
+          <p className="section-desc">
+            What happens between the boat and your plate decides freshness, flavour, and food
+            safety. Australian processors operate under FSANZ standards that ban many additives
+            common overseas — and the short distance from dock to facility means chilled product
+            often reaches the shelf within 24 hours.
+          </p>
+          <div className="pillar-grid">
+            <div className="pillar-feature-card">
+              <h3>What Australian Processors Do Differently</h3>
+              <ul className="pillar-list">
+                <li>HACCP-certified facilities audited regularly by state authorities</li>
+                <li>No sodium tripolyphosphate (STPP) water-injection on whole fish</li>
+                <li>Cold chain maintained at 0–4°C from harvest to retail</li>
+                <li>Mandatory traceability — vessel ID, harvest date, processor batch</li>
+                <li>Bans on sulphites in many products, with mandatory labelling where used</li>
+              </ul>
+            </div>
+            <div>
+              <div className="pillar-feature-card" style={{ marginBottom: "1.5rem" }}>
+                <h3>The Imported-Processed Trap</h3>
+                <p>
+                  &ldquo;Made in Australia from imported ingredients&rdquo; on a label means the
+                  fish was caught overseas — often months ago — and only crumbed, smoked, or
+                  packaged here. The country of catch is what governs the safety standards the fish
+                  was raised under.
+                </p>
+              </div>
+              <div className="pillar-feature-card">
+                <h3>Industry Scale</h3>
+                <div className="pillar-stats">
+                  <div className="pillar-stat">
+                    <strong>~$2B</strong>
+                    <span>Annual value-add from Australian seafood processing</span>
+                  </div>
+                  <div className="pillar-stat">
+                    <strong>500+</strong>
+                    <span>Licensed seafood processing facilities</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

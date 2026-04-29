@@ -1963,6 +1963,242 @@ body {
   .related-grid { grid-template-columns: 1fr; }
 }
 
+/* PHASE 2 — SPECIES DEEP-CONTENT SECTIONS */
+
+/* Why-Australian quad on species pages */
+.species-why {
+  background: linear-gradient(160deg, #fefdf9 0%, #f5ead7 100%);
+  padding: 5rem 0;
+}
+.species-why-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+.why-quad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.why-quad-card {
+  background: white;
+  border-top: 4px solid var(--teal);
+  border-radius: 6px;
+  padding: 1.5rem 1.4rem;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.04);
+}
+.why-quad-card h3 {
+  font-family: var(--f-cond);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.why-quad-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.why-quad-card li {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-mid);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(10, 37, 64, 0.06);
+}
+.why-quad-card li:last-child {
+  border-bottom: none;
+}
+
+/* Signature region pills */
+.signature-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1rem 0 1.5rem;
+}
+.signature-region-pill {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.7rem 1.1rem;
+  background: white;
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.signature-region-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal);
+  box-shadow: 0 6px 14px rgba(10, 37, 64, 0.08);
+}
+.signature-region-pill strong {
+  color: var(--navy);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.signature-region-pill span {
+  color: var(--text-light);
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+/* Seasonality grid */
+.seasonality-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.4rem;
+  margin: 1.5rem 0;
+}
+.season-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 0.3rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.72rem;
+}
+.season-cell strong {
+  font-family: var(--f-cond);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+.season-cell span {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.62rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.season-peak {
+  background: var(--teal);
+  color: white;
+}
+.season-good {
+  background: rgba(46, 196, 160, 0.4);
+  color: var(--navy);
+}
+.season-available {
+  background: var(--sand-light);
+  color: var(--text-mid);
+}
+.season-off {
+  background: rgba(231, 111, 81, 0.15);
+  color: var(--coral);
+}
+.season-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  font-size: 0.78rem;
+  color: var(--text-mid);
+  margin-bottom: 2rem;
+}
+.season-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.season-legend .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.dot-peak { background: var(--teal); }
+.dot-good { background: rgba(46, 196, 160, 0.4); }
+.dot-available { background: var(--sand-light); border: 1px solid rgba(10,37,64,0.12); }
+.dot-off { background: rgba(231, 111, 81, 0.4); }
+
+/* Cooking grid */
+.cooking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+.cooking-card {
+  background: var(--sand-light);
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 1.4rem;
+  border-radius: 4px;
+}
+.cooking-card h4 {
+  font-family: var(--f-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.cooking-card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  margin: 0;
+}
+
+/* Imported risks block */
+.imported-risks {
+  background: rgba(231, 111, 81, 0.06);
+  border-left: 4px solid var(--coral);
+  padding: 1.8rem 2rem;
+  border-radius: 4px;
+  margin: 2.5rem 0;
+}
+.imported-risks h2 {
+  margin-top: 0 !important;
+}
+.imported-risks ul {
+  margin-top: 0.8rem;
+}
+.imported-risks li {
+  margin-bottom: 0.5rem;
+}
+
+/* Labeling hint callout */
+.labeling-hint {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: rgba(30, 158, 128, 0.07);
+  border-left: 4px solid var(--teal);
+  padding: 1.4rem 1.6rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+.labeling-hint-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.labeling-hint strong {
+  display: block;
+  font-family: var(--f-cond);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+}
+.labeling-hint p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+
+@media (max-width: 900px) {
+  .species-why-inner { padding: 0 1.5rem; }
+  .why-quad,
+  .cooking-grid { grid-template-columns: 1fr; }
+  .seasonality-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .nav {

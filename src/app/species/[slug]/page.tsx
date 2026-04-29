@@ -6,8 +6,14 @@ import { EntityHero } from "@/components/EntityHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { NutritionBars } from "@/components/NutritionBars";
 import { CompareCard } from "@/components/CompareCard";
-import { species, speciesBySlug, allSpeciesSlugs, oysterVarieties } from "@/data/species";
+import {
+  speciesBySlug,
+  allSpeciesSlugs,
+  oysterVarieties,
+} from "@/data/species";
 import { comparisonBySlug } from "@/data/comparisons";
+import { areaBySlug, areaUrl } from "@/data/areas";
+import { citationById } from "@/data/citations";
 
 type Params = { slug: string };
 
@@ -29,6 +35,13 @@ export async function generateMetadata({
   };
 }
 
+const PILLAR_META = [
+  { key: "health" as const, label: "Health", color: "var(--teal)" },
+  { key: "economy" as const, label: "Economy", color: "var(--gold)" },
+  { key: "environment" as const, label: "Environment", color: "var(--ocean)" },
+  { key: "taste" as const, label: "Taste", color: "var(--coral)" },
+];
+
 export default async function SpeciesDetail({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const s = speciesBySlug(slug);
@@ -37,6 +50,10 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
   const compare = s.related?.compare?.[0]
     ? comparisonBySlug(s.related.compare[0])
     : undefined;
+
+  const sigRegions = (s.signatureRegions ?? [])
+    .map((sl) => areaBySlug(sl))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
   return (
     <PageShell>
@@ -51,26 +68,69 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
             {s.scientific}
           </div>
         )}
+        {s.flavour && (
+          <div style={{ marginTop: "1rem", fontSize: "1rem", color: "var(--text-mid)" }}>
+            <strong style={{ color: "var(--navy)" }}>Flavour:</strong> {s.flavour}
+          </div>
+        )}
       </EntityHero>
+
+      {/* WHY AUSTRALIAN — 4-PILLAR QUAD */}
+      {s.whyAustralian && (
+        <section className="species-why">
+          <div className="species-why-inner">
+            <span className="section-tag">Why Australian {s.name.split(" ").pop()}</span>
+            <h2 className="section-title">Four reasons to choose local</h2>
+            <div className="why-quad">
+              {PILLAR_META.map((p) => (
+                <div key={p.key} className="why-quad-card" style={{ borderTopColor: p.color }}>
+                  <h3 style={{ color: p.color }}>{p.label}</h3>
+                  <ul>
+                    {s.whyAustralian![p.key].map((line, i) => (
+                      <li key={i}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="entity-body">
         <div className="entity-body-inner">
-          <h2>About {s.name}</h2>
-          {s.flavour && (
-            <p>
-              <strong>Flavour:</strong> {s.flavour}
-            </p>
-          )}
+          {/* SOURCING */}
+          <h2>Sourcing</h2>
           <p>
-            <strong>Sourcing:</strong>{" "}
+            <strong>{s.name}</strong> is{" "}
             {s.sourcing === "wild"
-              ? "Wild-caught only"
+              ? "exclusively wild-caught."
               : s.sourcing === "farmed"
-                ? "Farmed (aquaculture) only"
-                : "Both wild-caught and farmed"}
+                ? "exclusively farmed (aquaculture)."
+                : "available both wild-caught and farmed."}
           </p>
 
-          <h2>Nutritional value (per 100g)</h2>
+          {/* SIGNATURE REGIONS */}
+          {sigRegions.length > 0 && (
+            <>
+              <h2>Where it comes from</h2>
+              <p>
+                {s.name} is most strongly associated with these {sigRegions.length} Australian
+                regions:
+              </p>
+              <div className="signature-regions">
+                {sigRegions.map((r) => (
+                  <Link key={r.slug} href={areaUrl(r)} className="signature-region-pill">
+                    <strong>{r.name}</strong>
+                    {r.tagline && <span>{r.tagline}</span>}
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* NUTRITION */}
+          <h2>Nutrition (per 100g)</h2>
           <p>
             How {s.name} compares to imported equivalents on the headline nutrients consumers care
             about.
@@ -79,9 +139,55 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
             <NutritionBars bars={s.nutrition} />
           </div>
 
+          {/* SEASONALITY */}
+          {s.seasonality && s.seasonality.length === 12 && (
+            <>
+              <h2>Seasonality</h2>
+              <p>
+                When to enjoy {s.name} at its peak.{" "}
+                {s.sourcing === "farmed" &&
+                  "(Farmed product is generally available year-round, with quality peaks in cooler months.)"}
+              </p>
+              <div className="seasonality-grid">
+                {s.seasonality.map((m) => (
+                  <div key={m.month} className={`season-cell season-${m.status}`}>
+                    <strong>{m.month}</strong>
+                    <span>{m.status}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="season-legend">
+                <span><i className="dot dot-peak" /> Peak</span>
+                <span><i className="dot dot-good" /> Good</span>
+                <span><i className="dot dot-available" /> Available</span>
+                <span><i className="dot dot-off" /> Off-season</span>
+              </div>
+            </>
+          )}
+
+          {/* COOKING NOTES */}
+          {s.cookingNotes && s.cookingNotes.length > 0 && (
+            <>
+              <h2>How to cook it</h2>
+              <p>
+                Four go-to preparations for {s.name} that respect the fish — short cooks, clean
+                flavours, no over-doing it.
+              </p>
+              <div className="cooking-grid">
+                {s.cookingNotes.map((c) => (
+                  <div key={c.method} className="cooking-card">
+                    <h4>{c.method}</h4>
+                    <p>{c.text}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* COMPARE */}
           {compare && (
             <>
-              <h2>Australia vs imported — at a glance</h2>
+              <h2>Australian vs imported — at a glance</h2>
               <p>{compare.summary}</p>
               <CompareCard data={compare} />
               <p style={{ marginTop: "1.5rem" }}>
@@ -92,7 +198,53 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
             </>
           )}
 
-          {/* Special-case oyster varieties sub-section */}
+          {/* RISKS OF IMPORTED */}
+          {(s.importedFrom || s.importedRisks) && (
+            <div className="imported-risks">
+              <h2 style={{ color: "var(--coral)" }}>The risks of the imported version</h2>
+              {s.importedFrom && (
+                <p>
+                  <strong>Typically imported from:</strong> {s.importedFrom}
+                </p>
+              )}
+              {s.importedRisks && s.importedRisks.length > 0 && (
+                <ul>
+                  {s.importedRisks.map((r, i) => (
+                    <li key={i}>{r}</li>
+                  ))}
+                </ul>
+              )}
+              <p style={{ marginTop: "1rem" }}>
+                <Link href="/risks-of-imported" className="btn-primary">
+                  See the full case against imported seafood →
+                </Link>
+              </p>
+            </div>
+          )}
+
+          {/* HOW TO BUY */}
+          {s.labelingHint && (
+            <>
+              <h2>How to buy it</h2>
+              <div className="labeling-hint">
+                <span className="labeling-hint-icon">🔍</span>
+                <div>
+                  <strong>Look for:</strong>
+                  <p>{s.labelingHint}</p>
+                </div>
+              </div>
+              <p style={{ marginTop: "1rem", fontSize: "0.92rem" }}>
+                From <strong>1 July 2026</strong>, every restaurant menu in Australia must show{" "}
+                <strong>A</strong> (Australian), <strong>I</strong> (Imported), or{" "}
+                <strong>M</strong> (Mixed) for each seafood dish.{" "}
+                <Link href="/labelling" style={{ color: "var(--teal)" }}>
+                  Read the law →
+                </Link>
+              </p>
+            </>
+          )}
+
+          {/* OYSTER VARIETIES (special case) */}
           {s.slug === "oysters" && (
             <>
               <h2>Three Australian oyster varieties</h2>
@@ -128,13 +280,7 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
                         <br />
                         <strong style={{ color: "var(--navy)" }}>Flavour:</strong> {o.flavour}
                       </p>
-                      <p
-                        style={{
-                          fontSize: "0.78rem",
-                          color: "var(--text-mid)",
-                          lineHeight: 1.55,
-                        }}
-                      >
+                      <p style={{ fontSize: "0.78rem", color: "var(--text-mid)", lineHeight: 1.55 }}>
                         {o.notes}
                       </p>
                     </div>
@@ -142,6 +288,39 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
                 ))}
               </div>
             </>
+          )}
+
+          {/* CITATIONS */}
+          {s.citationIds && s.citationIds.length > 0 && (
+            <div
+              style={{
+                marginTop: "3rem",
+                paddingTop: "2rem",
+                borderTop: "1px solid rgba(10,37,64,0.12)",
+              }}
+            >
+              <h3 style={{ fontSize: "1rem", marginBottom: "0.8rem" }}>Sources for this page</h3>
+              <ol style={{ fontSize: "0.85rem", lineHeight: 1.6, color: "var(--text-mid)" }}>
+                {s.citationIds.map((id) => {
+                  const c = citationById(id);
+                  if (!c) return null;
+                  return (
+                    <li key={id} style={{ marginBottom: "0.4rem" }}>
+                      <a
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "var(--teal)", textDecoration: "none" }}
+                      >
+                        {c.label}
+                      </a>{" "}
+                      — <em>{c.publisher}</em>
+                      {c.year ? ` (${c.year})` : ""}
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
           )}
         </div>
       </section>

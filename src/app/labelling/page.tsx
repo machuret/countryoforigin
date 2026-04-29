@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
   title: "Country of Origin Labelling for Seafood — Information Standard 2025",
@@ -9,26 +10,7 @@ export const metadata: Metadata = {
 
 export default function LabellingPage() {
   return (
-    <>
-      {/* NAV (simple, links back home) */}
-      <nav className="nav">
-        <div className="nav-logo">
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <div className="nav-logo-main">Country of Origin</div>
-            <div className="nav-logo-sub">Australian Seafood Guide</div>
-          </Link>
-        </div>
-        <div className="nav-links">
-          <Link href="/#compare">Compare</Link>
-          <Link href="/#seafood">Our Seafood</Link>
-          <Link href="/#nutrition">Nutrition</Link>
-          <Link href="/#economy">Economy</Link>
-          <Link href="/labelling" className="nav-cta">
-            Labelling Rules
-          </Link>
-        </div>
-      </nav>
-
+    <PageShell>
       <header className="legal-hero">
         <div className="legal-hero-inner">
           <span className="legal-eyebrow">Information Standard 2025 · Effective 1 July 2026</span>
@@ -116,10 +98,10 @@ export default function LabellingPage() {
           <span className="section-tag">Who is covered</span>
           <h2 className="section-title">Does this apply to my business?</h2>
           <p className="legal-body">
-            The labelling requirements apply if your business <strong>serves seafood for
-            immediate consumption</strong> in Australia. &ldquo;Immediate consumption&rdquo; means
-            the food is ready to eat as soon as it&apos;s handed to the customer — it doesn&apos;t
-            matter whether they eat it on-site, take it away, or have it delivered.
+            The labelling requirements apply if your business <strong>serves seafood for immediate
+            consumption</strong> in Australia. &ldquo;Immediate consumption&rdquo; means the food is
+            ready to eat as soon as it&apos;s handed to the customer — it doesn&apos;t matter
+            whether they eat it on-site, take it away, or have it delivered.
           </p>
 
           <div className="legal-cols">
@@ -262,8 +244,7 @@ export default function LabellingPage() {
             >
               <strong>Australian Consumer Law</strong>
               <span>
-                The umbrella law under which the seafood standard is made. Sets the framework for
-                truthful, non-misleading commerce.
+                The umbrella law under which the seafood standard is made.
               </span>
             </a>
             <a
@@ -274,8 +255,7 @@ export default function LabellingPage() {
             >
               <strong>Department of Industry — CoO labelling policy</strong>
               <span>
-                Federal department responsible for country-of-origin labelling policy across food
-                and seafood.
+                Federal department responsible for country-of-origin labelling policy.
               </span>
             </a>
           </div>
@@ -288,87 +268,10 @@ export default function LabellingPage() {
           Want to highlight Australian seafood on your menu? Browse our species guide and start
           building a story your customers can taste.
         </p>
-        <Link href="/#seafood" className="btn-white">
+        <Link href="/species" className="btn-white">
           Explore Australian Species
         </Link>
       </div>
-
-      <footer className="footer">
-        <div>
-          <div className="footer-logo">Country of Origin</div>
-          <div className="footer-tagline">Australian Seafood Guide</div>
-          <p className="footer-desc">
-            An independent resource helping Australians make informed seafood choices.
-          </p>
-        </div>
-        <div className="footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li>
-              <Link href="/#compare">Seafood Comparison</Link>
-            </li>
-            <li>
-              <Link href="/#seafood">Australian Species</Link>
-            </li>
-            <li>
-              <Link href="/#tuna">Southern Bluefin Tuna</Link>
-            </li>
-            <li>
-              <Link href="/#indigenous">Indigenous Fishing</Link>
-            </li>
-            <li>
-              <Link href="/#commercial">Commercial Fleets</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h4>Compliance</h4>
-          <ul>
-            <li>
-              <Link href="/labelling">Labelling Standard 2025</Link>
-            </li>
-            <li>
-              <a
-                href="https://www.legislation.gov.au/F2025L00751/latest/text"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Read the law
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://consumer.gov.au/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Australian Consumer Law
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h4>About</h4>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <a href="#">Data Sources</a>
-            </li>
-            <li>
-              <a href="#">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-      <div className="footer-bottom">
-        <p>
-          © 2026 Country of Origin. This page summarises the law for general guidance only and is
-          not legal advice. Always refer to the Information Standard 2025 and ACL for definitive
-          requirements.
-        </p>
-      </div>
-    </>
+    </PageShell>
   );
 }

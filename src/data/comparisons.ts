@@ -1,30 +1,31 @@
-export type SeafoodMetric = {
+import type { Entity, Slug } from "./types";
+
+export type Metric = {
   label: string;
   aus: string;
   imp: string;
+  /** True when the Australian value is the better outcome */
   ausGood: boolean;
 };
 
-export type SeafoodComparison = {
+export type Comparison = Entity & {
+  /** Slug of the species this comparison is for (1-1) */
+  speciesSlug: Slug;
   aus: { name: string; origin: string; country: string };
   imp: { name: string; origin: string; country: string };
-  metrics: SeafoodMetric[];
+  metrics: Metric[];
   ausScore: string;
   impScore: string;
 };
 
-export type FishKey =
-  | "barramundi"
-  | "salmon"
-  | "prawns"
-  | "tuna"
-  | "oysters"
-  | "abalone"
-  | "mussels"
-  | "rocklobster";
-
-export const fishData: Record<FishKey, SeafoodComparison> = {
-  barramundi: {
+export const comparisons: Comparison[] = [
+  {
+    slug: "barramundi-aus-vs-imported",
+    name: "Australian Barramundi vs Imported",
+    speciesSlug: "barramundi",
+    tagline: "Comparison",
+    summary:
+      "Side-by-side: Northern Australian wild & farmed barramundi against barramundi imported from Thailand and Vietnam.",
     aus: { name: "Australian Barramundi", origin: "Northern Australia", country: "Australia" },
     imp: { name: "Imported Barramundi", origin: "Thailand / Vietnam", country: "Asia" },
     metrics: [
@@ -39,7 +40,12 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     ausScore: "Australian barramundi scores 9.2/10 for nutrition, sustainability, and food safety.",
     impScore: "Imported product scores 5.8/10 due to lower standards and longer supply chains.",
   },
-  salmon: {
+  {
+    slug: "salmon-aus-vs-norway",
+    name: "Tasmanian Salmon vs Norwegian Salmon",
+    speciesSlug: "salmon",
+    summary:
+      "Tasmanian Atlantic salmon vs imported Norwegian and Chilean salmon — freshness, antibiotic use, and supply chain.",
     aus: { name: "Tasmanian Salmon", origin: "Tasmania, Australia", country: "Australia" },
     imp: { name: "Imported Salmon", origin: "Norway / Chile", country: "Europe / S. America" },
     metrics: [
@@ -54,7 +60,12 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     ausScore: "Tasmanian salmon scores 9.1/10 — world-class freshness and ASC-certified sustainability.",
     impScore: "Imported salmon scores 6.4/10 — quality varies significantly by origin and handling.",
   },
-  prawns: {
+  {
+    slug: "prawns-aus-vs-asia",
+    name: "Spencer Gulf King Prawns vs Imported Prawns",
+    speciesSlug: "prawns",
+    summary:
+      "Australian wild King Prawns from Spencer Gulf vs farmed imported prawns from Vietnam, India, and China.",
     aus: { name: "Spencer Gulf King Prawns", origin: "South Australia", country: "Australia" },
     imp: { name: "Imported Prawns", origin: "Vietnam / India / China", country: "Asia" },
     metrics: [
@@ -69,14 +80,19 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     ausScore: "Spencer Gulf King Prawns score 9.5/10 — globally recognised as among the world's finest.",
     impScore: "Imported prawns score 5.2/10 — significant variation in quality, additives, and ethics.",
   },
-  tuna: {
+  {
+    slug: "tuna-southern-bluefin-vs-imported",
+    name: "Southern Bluefin Tuna vs Imported Tuna",
+    speciesSlug: "tuna",
+    summary:
+      "Wild & ranched Southern Bluefin from the Bight vs imported Yellowfin and Bigeye from various Pacific and Indian Ocean fleets.",
     aus: { name: "Southern Bluefin Tuna", origin: "Southern Ocean", country: "Australia" },
     imp: { name: "Imported Tuna", origin: "Pacific / Indian Ocean", country: "Various" },
     metrics: [
       { label: "Omega-3 (per 100g)", aus: "1,800mg", imp: "1,200mg", ausGood: true },
       { label: "Mercury Level", aus: "Low-Moderate", imp: "Moderate-High", ausGood: true },
       { label: "Quota Management", aus: "CCSBT regulated", imp: "Variable", ausGood: true },
-      { label: "Fishing Method", aus: "Pole & line", imp: "Often long-line", ausGood: true },
+      { label: "Fishing Method", aus: "Pole & line / ranching", imp: "Often long-line", ausGood: true },
       { label: "Bycatch Rate", aus: "Very Low", imp: "Often High", ausGood: true },
       { label: "Product Traceability", aus: "Vessel to plate", imp: "Limited", ausGood: true },
       { label: "Price per 100g", aus: "~$6.00", imp: "~$2.80", ausGood: false },
@@ -84,12 +100,17 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     ausScore: "Australian tuna scores 8.7/10 — world-leading quota management ensures stock health.",
     impScore: "Imported tuna scores 5.5/10 — sustainability and mercury levels are major concerns.",
   },
-  oysters: {
-    aus: { name: "Sydney Rock Oyster", origin: "NSW & SA Estuaries", country: "Australia" },
-    imp: { name: "Imported Oysters", origin: "France / Japan / USA", country: "Europe / Asia" },
+  {
+    slug: "oysters-aus-vs-imported",
+    name: "Australian Oysters vs Imported Oysters",
+    speciesSlug: "oysters",
+    summary:
+      "Native Sydney Rock and farmed Pacific oysters from Australian waters vs imported oysters from France, Japan, and the USA.",
+    aus: { name: "Sydney Rock / Pacific Oyster", origin: "NSW & SA Estuaries", country: "Australia" },
+    imp: { name: "Imported Oysters", origin: "France / Japan / USA", country: "Europe / Asia / N. America" },
     metrics: [
       { label: "Zinc (per 100g)", aus: "38mg", imp: "22mg", ausGood: true },
-      { label: "Native to Australia", aus: "Yes — endemic", imp: "No", ausGood: true },
+      { label: "Native to Australia", aus: "Yes (Sydney Rock)", imp: "No", ausGood: true },
       { label: "Time to Table", aus: "1–3 days", imp: "7–21 days", ausGood: true },
       { label: "Water Quality Testing", aus: "Weekly", imp: "Varies by country", ausGood: true },
       { label: "Ecosystem Service", aus: "Water filtering", imp: "N/A (imported)", ausGood: true },
@@ -99,8 +120,13 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     ausScore: "Sydney Rock Oysters score 9.8/10 — unique endemic species with unmatched freshness.",
     impScore: "Imported oysters score 6.0/10 — freshness and food safety risks increase with distance.",
   },
-  abalone: {
-    aus: { name: "Australian Greenlip Abalone", origin: "Tasmania, Vic, SA, WA", country: "Australia" },
+  {
+    slug: "abalone-aus-vs-imported",
+    name: "Australian Greenlip Abalone vs Imported",
+    speciesSlug: "abalone",
+    summary:
+      "Wild dive-caught Australian Greenlip vs farmed and imported abalone from China, Korea, and Mexico.",
+    aus: { name: "Australian Greenlip Abalone", origin: "Tas, Vic, SA, WA", country: "Australia" },
     imp: { name: "Imported Abalone", origin: "China / Korea / Mexico", country: "Asia / Americas" },
     metrics: [
       { label: "Protein (per 100g)", aus: "17.1g", imp: "15.2g", ausGood: true },
@@ -116,9 +142,14 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     impScore:
       "Imported abalone scores 5.4/10 — often farmed with feed additives; many nations face stock collapse.",
   },
-  mussels: {
-    aus: { name: "Australian Blue Mussels", origin: "Tasmania, Victoria, SA", country: "Australia" },
-    imp: { name: "Imported Mussels", origin: "New Zealand / Chile / Spain", country: "Various" },
+  {
+    slug: "mussels-aus-vs-imported",
+    name: "Australian Blue Mussels vs Imported",
+    speciesSlug: "mussels",
+    summary:
+      "Rope-grown Australian Blue Mussels vs imported mussels from New Zealand, Chile, and Spain.",
+    aus: { name: "Australian Blue Mussels", origin: "Tas, Vic, SA", country: "Australia" },
+    imp: { name: "Imported Mussels", origin: "NZ / Chile / Spain", country: "Various" },
     metrics: [
       { label: "Protein (per 100g)", aus: "11.9g", imp: "11.2g", ausGood: true },
       { label: "Omega-3 (per 100g)", aus: "700mg", imp: "550mg", ausGood: true },
@@ -132,12 +163,13 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
       "Australian mussels score 9.4/10 — clean rope-grown protein with one of seafood's smallest footprints.",
     impScore: "Imported mussels score 6.8/10 — quality is good but freshness drops with transit.",
   },
-  rocklobster: {
-    aus: {
-      name: "Southern Rock Lobster",
-      origin: "Tasmania, SA, Victoria",
-      country: "Australia",
-    },
+  {
+    slug: "rocklobster-aus-vs-imported",
+    name: "Southern Rock Lobster vs Imported Lobster",
+    speciesSlug: "rocklobster",
+    summary:
+      "Wild-caught Southern Rock Lobster from Tasmania, SA, and Victoria vs imported lobster from Canada, USA, and Cuba.",
+    aus: { name: "Southern Rock Lobster", origin: "Tas, SA, Vic", country: "Australia" },
     imp: { name: "Imported Lobster", origin: "Canada / USA / Cuba", country: "N. America / Caribbean" },
     metrics: [
       { label: "Protein (per 100g)", aus: "20.5g", imp: "18.9g", ausGood: true },
@@ -153,115 +185,51 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     impScore:
       "Imported lobster scores 6.5/10 — freshness varies, especially for frozen or long-haul live shipments.",
   },
-};
-
-export type NutBar = {
-  name: string;
-  aus: number;
-  imp: number;
-  max: number;
-  unit: string;
-};
-
-export const nutData: Record<FishKey, NutBar[]> = {
-  barramundi: [
-    { name: "Omega-3 Fatty Acids", aus: 820, imp: 480, max: 1000, unit: "mg" },
-    { name: "Protein", aus: 22.4, imp: 19.8, max: 28, unit: "g" },
-    { name: "Vitamin D", aus: 6.2, imp: 4.1, max: 10, unit: "µg" },
-    { name: "Selenium", aus: 38, imp: 26, max: 50, unit: "µg" },
-    { name: "Iodine", aus: 44, imp: 28, max: 60, unit: "µg" },
-  ],
-  salmon: [
-    { name: "Omega-3 Fatty Acids", aus: 2700, imp: 2100, max: 3000, unit: "mg" },
-    { name: "Protein", aus: 24.1, imp: 22.3, max: 28, unit: "g" },
-    { name: "Vitamin D", aus: 11, imp: 7.5, max: 15, unit: "µg" },
-    { name: "Selenium", aus: 36, imp: 28, max: 50, unit: "µg" },
-    { name: "Vitamin B12", aus: 3.2, imp: 2.4, max: 5, unit: "µg" },
-  ],
-  prawns: [
-    { name: "Protein", aus: 18.6, imp: 17.2, max: 24, unit: "g" },
-    { name: "Selenium", aus: 33, imp: 24, max: 50, unit: "µg" },
-    { name: "Iodine", aus: 35, imp: 22, max: 60, unit: "µg" },
-    { name: "Zinc", aus: 1.6, imp: 1.2, max: 3, unit: "mg" },
-    { name: "Vitamin B12", aus: 1.8, imp: 1.3, max: 3, unit: "µg" },
-  ],
-  tuna: [
-    { name: "Omega-3 Fatty Acids", aus: 1800, imp: 1200, max: 2500, unit: "mg" },
-    { name: "Protein", aus: 25.4, imp: 23.6, max: 30, unit: "g" },
-    { name: "Vitamin D", aus: 6.8, imp: 4.3, max: 10, unit: "µg" },
-    { name: "Selenium", aus: 90, imp: 70, max: 110, unit: "µg" },
-    { name: "Vitamin B12", aus: 9.4, imp: 7.1, max: 12, unit: "µg" },
-  ],
-  oysters: [
-    { name: "Zinc (per 100g)", aus: 38, imp: 22, max: 50, unit: "mg" },
-    { name: "Vitamin B12", aus: 19, imp: 14, max: 25, unit: "µg" },
-    { name: "Iron", aus: 7.2, imp: 5.1, max: 10, unit: "mg" },
-    { name: "Selenium", aus: 77, imp: 55, max: 100, unit: "µg" },
-    { name: "Protein", aus: 9.5, imp: 8.0, max: 14, unit: "g" },
-  ],
-  abalone: [
-    { name: "Protein", aus: 17.1, imp: 15.2, max: 22, unit: "g" },
-    { name: "Iron", aus: 3.2, imp: 2.1, max: 5, unit: "mg" },
-    { name: "Vitamin B12", aus: 0.7, imp: 0.5, max: 1.5, unit: "µg" },
-    { name: "Selenium", aus: 45, imp: 32, max: 60, unit: "µg" },
-    { name: "Magnesium", aus: 48, imp: 36, max: 70, unit: "mg" },
-  ],
-  mussels: [
-    { name: "Omega-3 Fatty Acids", aus: 700, imp: 550, max: 900, unit: "mg" },
-    { name: "Protein", aus: 11.9, imp: 11.2, max: 16, unit: "g" },
-    { name: "Iron", aus: 6.7, imp: 5.3, max: 9, unit: "mg" },
-    { name: "Vitamin B12", aus: 24, imp: 19, max: 30, unit: "µg" },
-    { name: "Selenium", aus: 89, imp: 70, max: 110, unit: "µg" },
-  ],
-  rocklobster: [
-    { name: "Protein", aus: 20.5, imp: 18.9, max: 25, unit: "g" },
-    { name: "Selenium", aus: 75, imp: 55, max: 100, unit: "µg" },
-    { name: "Vitamin B12", aus: 1.4, imp: 1.0, max: 2, unit: "µg" },
-    { name: "Zinc", aus: 3.5, imp: 2.8, max: 5, unit: "mg" },
-    { name: "Copper", aus: 1.6, imp: 1.2, max: 2, unit: "mg" },
-  ],
-};
-
-/* OYSTER VARIETIES (for the species page sub-grid) */
-export type OysterVariety = {
-  key: string;
-  name: string;
-  scientific: string;
-  origin: string;
-  flavour: string;
-  notes: string;
-  status: "native" | "naturalised";
-};
-
-export const oysterVarieties: OysterVariety[] = [
   {
-    key: "sydney-rock",
-    name: "Sydney Rock Oyster",
-    scientific: "Saccostrea glomerata",
-    origin: "NSW & southern Queensland estuaries",
-    flavour: "Sweet, creamy, mineral finish",
-    notes:
-      "Australia's iconic native oyster — slower-growing than Pacifics, prized for depth of flavour and resilience to estuarine conditions.",
-    status: "native",
+    slug: "western-rocklobster-aus-vs-imported",
+    name: "Western Rock Lobster vs Imported Lobster",
+    speciesSlug: "western-rock-lobster",
+    summary:
+      "MSC-certified Western Rock Lobster (the world's first MSC fishery) vs imported lobster.",
+    aus: { name: "Western Rock Lobster", origin: "Western Australia", country: "Australia" },
+    imp: { name: "Imported Lobster", origin: "Canada / USA / Cuba", country: "N. America / Caribbean" },
+    metrics: [
+      { label: "MSC Certified Since", aus: "2000", imp: "Variable", ausGood: true },
+      { label: "Protein (per 100g)", aus: "20.2g", imp: "18.9g", ausGood: true },
+      { label: "Wild vs. Farmed", aus: "Wild-caught (pots)", imp: "Wild-caught", ausGood: true },
+      { label: "Quota Management", aus: "ITQ", imp: "Variable", ausGood: true },
+      { label: "Bycatch Rate", aus: "Very low (pot fishery)", imp: "Variable", ausGood: true },
+      { label: "Live Trade Standards", aus: "World-leading", imp: "Variable", ausGood: true },
+      { label: "Price per kg", aus: "~$110", imp: "~$70", ausGood: false },
+    ],
+    ausScore:
+      "Western Rock Lobster scores 9.6/10 — global benchmark for sustainable wild-capture lobster.",
+    impScore:
+      "Imported lobster scores 6.5/10 — freshness varies, especially for frozen or long-haul live shipments.",
   },
   {
-    key: "pacific",
-    name: "Pacific Oyster",
-    scientific: "Crassostrea gigas",
-    origin: "Tasmania, SA, Coffin Bay",
-    flavour: "Brisk, briny, cucumber-like",
-    notes:
-      "Introduced from Japan and now the dominant farmed species in cool southern waters; grows fast and is the basis of Coffin Bay's reputation.",
-    status: "naturalised",
-  },
-  {
-    key: "angasi",
-    name: "Native Angasi Oyster",
-    scientific: "Ostrea angasi",
-    origin: "Tasmania, SA, Victoria",
-    flavour: "Rich, umami, almost mushroomy",
-    notes:
-      "Australia's flat oyster — once nearly lost to overharvest, now subject of restoration projects rebuilding shellfish reefs.",
-    status: "native",
+    slug: "pearls-aus-vs-imported",
+    name: "Australian South Sea Pearls vs Imported Cultured Pearls",
+    speciesSlug: "pearls",
+    summary:
+      "Pinctada maxima South Sea Pearls farmed off Broome vs imported Akoya, Tahitian, and Chinese freshwater pearls.",
+    aus: { name: "Australian South Sea Pearls", origin: "Broome, WA", country: "Australia" },
+    imp: { name: "Imported Cultured Pearls", origin: "Japan / China / French Polynesia", country: "Various" },
+    metrics: [
+      { label: "Pearl Species", aus: "Pinctada maxima", imp: "Akoya / freshwater", ausGood: true },
+      { label: "Average Size", aus: "10–20mm", imp: "5–9mm (Akoya)", ausGood: true },
+      { label: "Farming Standards", aus: "Strict environmental approvals", imp: "Variable", ausGood: true },
+      { label: "Pearl Meat Edible", aus: "Yes — sought-after delicacy", imp: "Variable", ausGood: true },
+      { label: "Heritage", aus: "Multicultural & Indigenous", imp: "Various", ausGood: true },
+      { label: "Price per pearl", aus: "From ~$500", imp: "From ~$50 (freshwater)", ausGood: false },
+    ],
+    ausScore:
+      "Australian South Sea Pearls score 9.7/10 — the world's most prized cultured pearls.",
+    impScore:
+      "Imported cultured pearls score 6.5/10 — broad range of quality and origin.",
   },
 ];
+
+export const comparisonBySlug = (slug: Slug): Comparison | undefined =>
+  comparisons.find((c) => c.slug === slug);
+export const allComparisonSlugs = (): Slug[] => comparisons.map((c) => c.slug);

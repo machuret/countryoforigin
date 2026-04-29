@@ -491,6 +491,705 @@ export const speciesDeep: Record<string, SpeciesDeepData> = {
     ],
   },
 
+  /* =============================== ABALONE ============================== */
+  abalone: {
+    stockStatus: {
+      rating: "sustainable-rebuilding",
+      year: 2024,
+      citationId: "safs-2024",
+      note: "TAS Greenlip and Blacklip stocks recovering after disease and biomass adjustments. Wild only.",
+    },
+    productionHistory: [
+      { year: 2019, tonnes: 2400, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 2200, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 2300, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 2350, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 2400, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Hand-collected by divers", note: "Compressed-air and hookah only — no scuba commercial divers permitted." },
+      { method: "Aquaculture (limited)", note: "Land-based and sea-cage trials in TAS, VIC, SA." },
+    ],
+    mercury: { aus: 0.02, imp: 0.04, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 80, ausHigh: 220, impLow: 60, impHigh: 140, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Diver harvest (live)", days: "Day 0" },
+      { step: "Holding tanks", days: "0–2" },
+      { step: "Live export or domestic wholesale", days: "1–3" },
+      { step: "Retail / restaurant", days: "2–5" },
+      { step: "Total AUS days to plate (live)", days: "2–5" },
+    ],
+    lookAlikes: [
+      { name: "Imported farmed abalone (China, Korea)", whyConfused: "Sometimes sold canned or frozen as 'abalone' generic.", howToTell: "Australian product is wild, far larger, and almost always sold live or frozen-whole with provenance. Imports are typically smaller and pre-cooked." },
+    ],
+    regulations: { quotaTonnes: 1500, sizeLimit: "138mm (TAS Greenlip)", sourceId: "tas-nre-fisheries", note: "ITQ-managed since 1985 in Tasmania; minimum sizes vary by state and species." },
+    keyOperators: [
+      { name: "Tasmanian Abalone Council", type: "peak-body", region: "Tasmania", url: "https://tasabalone.com.au/" },
+      { name: "Australian Abalone Growers Association", type: "peak-body", url: "https://aaga.com.au/" },
+      { name: "Coastal Seafarms", type: "farm", region: "Tasmania" },
+    ],
+    history: [
+      { year: 1962, note: "Commercial abalone diving begins in Tasmania." },
+      { year: 1985, note: "ITQ system introduced — Tasmania becomes a global model for shellfish quota management." },
+      { year: 2008, note: "Abalone Viral Ganglioneuritis (AVG) outbreak in Victoria devastates wild stocks." },
+      { year: 2020, note: "Land-based RAS aquaculture scales as supplementary supply." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* =============================== MUSSELS ============================== */
+  mussels: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "All Australian commercial mussels are farmed; very low environmental impact." },
+    productionHistory: [
+      { year: 2019, tonnes: 3200, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 3500, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 3800, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 4100, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 4300, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Longline / dropper rope culture", note: "Dominant — TAS, VIC, SA. No feed required." },
+    ],
+    mercury: { aus: 0.02, imp: 0.03, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "none", citationId: "fsanz-residues", provenance: "primary", note: "Bivalves are filter-feeders; no antibiotics in the production model." },
+    priceRange: { ausLow: 12, ausHigh: 22, impLow: 8, impHigh: 16, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Harvest from longline (live)", days: "Day 0" },
+      { step: "Grading & packing", days: "0–1" },
+      { step: "Wholesale / retail (live)", days: "1–3" },
+      { step: "Total AUS days to plate (live)", days: "1–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported NZ Greenlip mussels", whyConfused: "Often frozen, larger, sold as 'green-lipped' or 'green mussels'.", howToTell: "Different species (Perna canaliculus). Australian Blue Mussels (Mytilus galloprovincialis) are smaller and uniformly blue-black." },
+      { name: "Frozen mussel meat (often Chile/Spain)", whyConfused: "Pre-cooked and frozen on the shell — used in marinated mussel products.", howToTell: "Australian mussels are predominantly sold live in mesh bags. If pre-cooked or marinated, check origin label." },
+    ],
+    regulations: { sourceId: "tas-nre-fisheries", note: "Lease-area based regulation; harvest area classifications and water-quality testing under state shellfish QA programs." },
+    keyOperators: [
+      { name: "Spring Bay Seafoods", type: "farm", region: "Tasmania", url: "https://springbayseafoods.com.au/" },
+      { name: "Sea Bounty", type: "farm", region: "Victoria (Port Phillip Bay)", url: "https://seabounty.com.au/" },
+      { name: "Kinkawooka Shellfish", type: "farm", region: "South Australia", url: "https://kinkawooka.com.au/" },
+    ],
+    history: [
+      { year: 1980, note: "Commercial mussel farming begins in Port Phillip Bay." },
+      { year: 1995, note: "Industry expansion into Spencer Gulf and Tasmanian east coast." },
+      { year: 2018, note: "Mussel farming recognised as one of Australia's lowest-footprint protein sources." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* =============================== PEARLS =============================== */
+  pearls: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "WA Pinctada maxima fishery is closely regulated; pearl meat by-product is also food-grade." },
+    gear: [
+      { method: "Wild collection of Pinctada maxima oysters", note: "Hand-collection by divers under strict quota in WA Kimberley." },
+      { method: "Pearl farms (Cygnet Bay, Roebuck Bay, etc.)", note: "Operated under state environmental approvals." },
+    ],
+    keyOperators: [
+      { name: "Paspaley Pearling Company", type: "farm", region: "Kimberley, WA", url: "https://www.paspaley.com/" },
+      { name: "Cygnet Bay Pearls", type: "farm", region: "Kimberley, WA", url: "https://cygnetbaypearls.com.au/" },
+      { name: "Pearl Producers Association", type: "peak-body", region: "Western Australia", url: "https://pearlproducers.com.au/" },
+    ],
+    history: [
+      { year: 1880, note: "Pearling industry begins in Broome — initially driven by pearl-shell button trade." },
+      { year: 1956, note: "Cultured South Sea Pearl industry established in Australia (Paspaley)." },
+      { year: 2024, note: "Australian South Sea Pearls remain among the world's most valuable cultured pearls." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* =============================== SNAPPER ============================== */
+  snapper: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Western (WA), Eastern (NSW/QLD), and Southern (SA/VIC) stocks variously assessed; Spencer Gulf rebuilding." },
+    productionHistory: [
+      { year: 2019, tonnes: 4200, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 3800, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 3900, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 4100, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 4200, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Demersal longline", note: "NSW and QLD commercial fleet." },
+      { method: "Hook-and-line / dropline", note: "Selective gear; minimal bycatch." },
+      { method: "Recreational rod & line", note: "Major rec target; bag limits apply per state." },
+    ],
+    mercury: { aus: 0.10, imp: 0.16, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 38, ausHigh: 65, impLow: 22, impHigh: 38, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Catch (line)", days: "Day 0" },
+      { step: "Onshore chill", days: "0–1" },
+      { step: "Wholesale", days: "1–2" },
+      { step: "Retail / restaurant", days: "2–4" },
+      { step: "Total AUS days to plate", days: "2–4" },
+    ],
+    lookAlikes: [
+      { name: "NZ snapper (Pagrus auratus)", whyConfused: "Same species, different stock. Often sold in Australia as 'snapper' without origin clarity.", howToTell: "Country-of-origin labelling required at retail. At restaurants — ask after 1 July 2026 the menu must show A/I/M." },
+      { name: "Imported 'snapper' substitutes", whyConfused: "Various Pacific and Asian species substituted under the snapper name.", howToTell: "Australian Fish Names Standard prescribes correct names; mislabelling has been documented in Australian retail and foodservice." },
+    ],
+    regulations: { bagLimit: "5/day (NSW recreational)", sizeLimit: "30cm (NSW)", sourceId: "nsw-dpi-stock" },
+    keyOperators: [
+      { name: "Sydney Fish Market", type: "market", region: "NSW", url: "https://www.sydneyfishmarket.com.au/" },
+      { name: "Professional Fishermen's Association NSW", type: "peak-body", url: "https://www.pfansw.com.au/" },
+    ],
+    history: [
+      { year: 1950, note: "Sydney Fish Market becomes the dominant snapper auction." },
+      { year: 1984, note: "First minimum legal size for NSW snapper introduced." },
+      { year: 2020, note: "Spencer Gulf snapper closure — multi-year rebuilding strategy." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================= FLATHEAD ============================= */
+  flathead: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Tiger Flathead (Bass Strait) sustainable; Dusky Flathead estuarine stocks variable by region." },
+    productionHistory: [
+      { year: 2019, tonnes: 2200, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 2100, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 2200, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 2300, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 2400, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Demersal trawl", note: "Bass Strait Tiger Flathead — Commonwealth-managed." },
+      { method: "Recreational rod & line", note: "Dominant recreational species in NSW estuaries." },
+    ],
+    mercury: { aus: 0.07, imp: 0.13, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "documented", citationId: "daff-imported-food", provenance: "primary", note: "Imported 'flake' is often basa/pangasius, with documented antibiotic residue cases." },
+    priceRange: { ausLow: 28, ausHigh: 45, impLow: 12, impHigh: 18, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Trawl catch", days: "Day 0" },
+      { step: "Onboard chill", days: "0" },
+      { step: "Port unload & wholesale", days: "1–2" },
+      { step: "Retail / fish-and-chip shop", days: "2–4" },
+      { step: "Total AUS days to plate", days: "2–4" },
+    ],
+    lookAlikes: [
+      { name: "Imported basa / pangasius (Vietnam)", whyConfused: "Routinely sold as generic 'flake' or 'fish' at takeaway shops.", howToTell: "True flathead has firm, white flesh and a distinctive flat head. Basa is uniformly soft, white, fillet-only, and pond-farmed." },
+      { name: "Imported gummy shark substitutes", whyConfused: "Real Australian 'flake' is gummy shark; substitutes include other shark species and basa.", howToTell: "Ask the operator what species the flake is. From 1 July 2026, menus must indicate origin (A/I/M)." },
+    ],
+    regulations: { bagLimit: "10/day (NSW Dusky)", sizeLimit: "36cm (NSW Dusky)", sourceId: "nsw-dpi-stock" },
+    keyOperators: [
+      { name: "South East Trawl Fishing Industry Association", type: "peak-body", region: "Bass Strait", url: "https://setfia.org.au/" },
+      { name: "Sydney Fish Market", type: "market", region: "NSW", url: "https://www.sydneyfishmarket.com.au/" },
+    ],
+    history: [
+      { year: 1915, note: "Commercial trawling begins in Bass Strait." },
+      { year: 1992, note: "Southern and Eastern Scalefish and Shark Fishery (SESSF) established." },
+      { year: 2010, note: "Tiger Flathead achieves sustainability rating; recovery from earlier overfishing." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ========================== KING GEORGE WHITING ======================== */
+  "king-george-whiting": {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "SA Spencer Gulf and VIC Port Phillip Bay stocks well-managed; endemic to southern Australia." },
+    productionHistory: [
+      { year: 2019, tonnes: 750, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 720, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 760, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 780, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Hand-line", note: "Selective; preserves the premium quality." },
+      { method: "Haul-net (small mesh)", note: "Limited operation — heavily regulated." },
+    ],
+    mercury: { aus: 0.04, imp: 0.10, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 45, ausHigh: 75, impLow: 18, impHigh: 28, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Catch (line/net)", days: "Day 0" },
+      { step: "Onshore chill", days: "0–1" },
+      { step: "Wholesale", days: "1–2" },
+      { step: "Retail / restaurant", days: "2–3" },
+      { step: "Total AUS days to plate", days: "2–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported 'whiting'", whyConfused: "Various Pacific/African whiting species sold as generic 'whiting'.", howToTell: "King George Whiting is endemic to southern Australia. Genuine product is named explicitly — accept no substitutes." },
+      { name: "Sand Whiting / School Whiting", whyConfused: "Different Australian whiting species; less prized but often labelled simply 'whiting'.", howToTell: "King George is larger, with characteristic golden spots; firmer texture. Worth 2–3× the price of generic whiting." },
+    ],
+    regulations: { bagLimit: "20/day (SA recreational)", sizeLimit: "31cm (SA)", sourceId: "pirsa-fisheries" },
+    keyOperators: [
+      { name: "Wildcatch Fisheries SA", type: "peak-body", region: "South Australia" },
+      { name: "Adelaide Central Market", type: "market", region: "SA" },
+    ],
+    history: [
+      { year: 1945, note: "Targeted commercial fishery established in Spencer Gulf." },
+      { year: 1990, note: "Strict bag limits introduced as recreational pressure rises." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ================================ BREAM =============================== */
+  bream: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "nsw-dpi-stock", note: "NSW estuarine yellowfin bream stocks well-managed via bag limits and habitat protection." },
+    productionHistory: [
+      { year: 2019, tonnes: 600, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 580, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 600, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 620, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 640, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Estuarine net (mesh)", note: "Limited commercial entry; managed by NSW DPI." },
+      { method: "Recreational rod & line", note: "One of NSW's most-targeted recreational species." },
+    ],
+    mercury: { aus: 0.05, imp: 0.10, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "documented", citationId: "daff-imported-food", provenance: "primary", note: "Imported sea bream from Mediterranean and Asian aquaculture has documented antibiotic residue cases." },
+    priceRange: { ausLow: 25, ausHigh: 38, impLow: 18, impHigh: 28, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Estuarine catch", days: "Day 0" },
+      { step: "Onshore chill", days: "0–1" },
+      { step: "Wholesale", days: "1–2" },
+      { step: "Retail", days: "2–3" },
+      { step: "Total AUS days to plate", days: "2–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported sea bream (Mediterranean/Asian)", whyConfused: "Different sparid species marketed under 'sea bream' label.", howToTell: "Australian Yellowfin Bream is a distinct species (Acanthopagrus australis); imported sea bream is typically gilthead (Sparus aurata) or red porgy." },
+    ],
+    regulations: { bagLimit: "10/day (NSW recreational)", sizeLimit: "25cm (NSW)", sourceId: "nsw-dpi-stock" },
+    keyOperators: [
+      { name: "Professional Fishermen's Association NSW", type: "peak-body", url: "https://www.pfansw.com.au/" },
+    ],
+    history: [
+      { year: 1980, note: "NSW estuarine fishery management formalised with mesh-size limits." },
+      { year: 2010, note: "Habitat protection programs in NSW estuaries scale up." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================== MULLOWAY ============================== */
+  mulloway: {
+    stockStatus: { rating: "recovering", year: 2024, citationId: "safs-2024", note: "Coorong (SA) stock recovering under co-management with Ngarrindjeri Regional Authority." },
+    productionHistory: [
+      { year: 2019, tonnes: 350, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 320, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 340, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 380, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 400, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Estuarine net & line", note: "Coorong fishery — Indigenous co-managed." },
+      { method: "Recreational rod & line", note: "Iconic prized species." },
+    ],
+    mercury: { aus: 0.18, imp: 0.22, unit: "mg/kg", citationId: "fsanz-mercury-2024", provenance: "primary", note: "Larger, longer-lived predator; FSANZ recommends limiting consumption for pregnant women." },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 30, ausHigh: 45, impLow: 18, impHigh: 28, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Coorong catch", days: "Day 0" },
+      { step: "Onshore chill / Indigenous coop", days: "0–1" },
+      { step: "Wholesale", days: "1–2" },
+      { step: "Retail / chef-restaurant", days: "2–3" },
+      { step: "Total AUS days to plate", days: "2–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported corvina (South America)", whyConfused: "Same family (Sciaenidae); generic 'jewfish' label.", howToTell: "Australian mulloway has firmer, drier flesh and is sold whole or as identifiable fillets. Imports are usually frozen, vacuum-packed." },
+    ],
+    regulations: { bagLimit: "2/day (SA recreational)", sizeLimit: "75cm (SA)", sourceId: "pirsa-fisheries" },
+    keyOperators: [
+      { name: "Coorong Wild Seafood (Ngarrindjeri Regional Authority)", type: "coop", region: "Coorong, SA", url: "https://ngarrindjeri.org.au/" },
+    ],
+    history: [
+      { year: 1981, note: "Coorong commercial fishery formalised." },
+      { year: 2009, note: "Ngarrindjeri co-management arrangements scale." },
+      { year: 2020, note: "Stock rebuilding measures introduced after multi-year decline." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================== KINGFISH ============================= */
+  kingfish: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Wild stocks sustainable; aquaculture growing rapidly in SA Spencer Gulf and NSW." },
+    productionHistory: [
+      { year: 2019, tonnes: 800, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 1000, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 1300, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 1700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 2100, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Sea-cage aquaculture", note: "Spencer Gulf SA — Clean Seas Seafood; Huon Aquaculture NSW." },
+      { method: "Wild line / troll", note: "NSW recreational and commercial." },
+    ],
+    mercury: { aus: 0.15, imp: 0.20, unit: "mg/kg", citationId: "fsanz-mercury-2024", provenance: "primary" },
+    antibiotics: { aus: "rare", imp: "documented", citationId: "fsanz-antibiotic-residues", provenance: "primary", note: "Australian aquaculture uses antibiotics only on prescription; Japanese hamachi farms have higher reported use." },
+    priceRange: { ausLow: 38, ausHigh: 65, impLow: 35, impHigh: 60, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Harvest from sea-pen", days: "Day 0" },
+      { step: "Bleed / chill / pack", days: "0" },
+      { step: "Air freight to market", days: "1–2" },
+      { step: "Retail / sushi / restaurant", days: "2–3" },
+      { step: "Total AUS days to plate", days: "2–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported Japanese Hamachi / Buri", whyConfused: "Same genus (Seriola); both sold as sashimi-grade.", howToTell: "Australian Yellowtail Kingfish (Seriola lalandi) labelled as such; Hamachi (S. quinqueradiata) typically labelled with origin." },
+      { name: "Imported Mexican Yellowtail", whyConfused: "Same species farmed in Baja, Mexico.", howToTell: "Country-of-origin labelling required at retail." },
+    ],
+    regulations: { bagLimit: "5/day (NSW recreational)", sizeLimit: "65cm (NSW)", sourceId: "nsw-dpi-stock" },
+    keyOperators: [
+      { name: "Clean Seas Seafood", type: "farm", region: "Spencer Gulf, SA", url: "https://www.cleanseas.com.au/" },
+      { name: "Huon Aquaculture (Yellowtail Kingfish)", type: "farm", region: "Port Stephens, NSW", url: "https://www.huonaqua.com.au/" },
+    ],
+    history: [
+      { year: 2002, note: "First commercial Yellowtail Kingfish aquaculture in Spencer Gulf." },
+      { year: 2018, note: "Australian Yellowtail Kingfish gains traction in Japanese sashimi market." },
+      { year: 2022, note: "Production exceeds 1700t — fastest-growing Australian aquaculture sector." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================== MAHI-MAHI ============================= */
+  "mahi-mahi": {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Fast-growing pelagic; sustainable when managed. Australian fleet is small." },
+    productionHistory: [
+      { year: 2019, tonnes: 320, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 280, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 340, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 360, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 380, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Pelagic longline (Eastern Tuna and Billfish Fishery)", note: "Bycatch-managed Commonwealth fishery." },
+      { method: "Recreational troll", note: "QLD/NSW summer game-fishing target." },
+    ],
+    mercury: { aus: 0.12, imp: 0.16, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 25, ausHigh: 38, impLow: 16, impHigh: 25, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Catch (longline/troll)", days: "Day 0" },
+      { step: "Onboard ice/chill", days: "0–2" },
+      { step: "Port unload & wholesale", days: "1–3" },
+      { step: "Retail / restaurant", days: "2–5" },
+      { step: "Total AUS days to plate", days: "2–5" },
+    ],
+    lookAlikes: [
+      { name: "Imported mahi-mahi (Ecuador, Peru, Vietnam)", whyConfused: "Same species (Coryphaena hippurus).", howToTell: "Country-of-origin labelling required. Imported product is often pre-frozen and lighter-coloured at thaw." },
+      { name: "Generic 'dolphinfish' or 'dorado'", whyConfused: "Same species under different market names.", howToTell: "All refer to mahi-mahi. Check the country of catch — that's the differentiator." },
+    ],
+    regulations: { sourceId: "afma-harvest-strategies" },
+    keyOperators: [
+      { name: "Eastern Tuna and Billfish Fishery (AFMA-managed)", type: "peak-body", region: "QLD/NSW" },
+      { name: "Mooloolaba Fish Market", type: "market", region: "Sunshine Coast, QLD" },
+    ],
+    history: [
+      { year: 1995, note: "Eastern Tuna and Billfish Fishery formalised under AFMA." },
+      { year: 2010, note: "Mooloolaba becomes the dominant Australian mahi-mahi unloading port." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================ CORAL TROUT ============================= */
+  "coral-trout": {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Great Barrier Reef Coral Trout is line-only fishery; quota-managed. Marine park protection critical." },
+    productionHistory: [
+      { year: 2019, tonnes: 800, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 750, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 800, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 820, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Hook-and-line only", note: "No nets, no traps. Strictly line-caught under QLD Coral Reef Fin Fish Fishery rules." },
+    ],
+    mercury: { aus: 0.18, imp: 0.30, unit: "mg/kg", citationId: "fsanz-mercury-2024", provenance: "primary", note: "Reef predator; mercury moderate. Imported reef fish often higher." },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 70, ausHigh: 120, impLow: 35, impHigh: 60, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Line catch on the GBR", days: "Day 0" },
+      { step: "Live transport in tanks", days: "0–3" },
+      { step: "Wholesale (often live to export)", days: "1–4" },
+      { step: "Retail / restaurant (live)", days: "2–5" },
+      { step: "Total AUS days to plate (live)", days: "2–5" },
+    ],
+    lookAlikes: [
+      { name: "Imported reef fish (Indonesia, Philippines)", whyConfused: "Sometimes cyanide-caught; sold as generic 'reef fish' or 'grouper'.", howToTell: "Australian Coral Trout is line-only and fully traceable. Imported reef fish often has documented cyanide-fishing concerns (EJF reports)." },
+      { name: "Imported Asian grouper varieties", whyConfused: "Same family (Serranidae); marketed under similar premium framing.", howToTell: "Coral Trout (Plectropomus leopardus) is endemic to the Indo-Pacific and has distinctive blue-spotted red colouring." },
+    ],
+    regulations: { quotaTonnes: 1300, sizeLimit: "38cm (QLD)", sourceId: "qld-fisheries", note: "QLD Coral Reef Fin Fish Fishery quota; closed seasons during spawning aggregations." },
+    keyOperators: [
+      { name: "Queensland Seafood Industry Association", type: "peak-body", region: "QLD", url: "https://qldseafood.com.au/" },
+      { name: "Cairns Marine", type: "processor", region: "QLD" },
+    ],
+    history: [
+      { year: 2003, note: "GBR Marine Park Zoning Plan substantially expands no-take zones." },
+      { year: 2009, note: "QLD Coral Reef Fin Fish Fishery introduces ITQ system." },
+      { year: 2020, note: "China export disruption reorients the industry to domestic and Hong Kong markets." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================== MUD CRAB ============================== */
+  "mud-crab": {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "NT and QLD wild stocks sustainably managed; some Indigenous co-management arrangements." },
+    productionHistory: [
+      { year: 2019, tonnes: 700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 650, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 750, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 780, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Pot (baited)", note: "Selective — undersized and berried females released live." },
+    ],
+    mercury: { aus: 0.04, imp: 0.06, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "documented", citationId: "daff-imported-food", provenance: "primary", note: "Imported pond-farmed mud crab from SE Asia has multiple documented antibiotic residue cases." },
+    priceRange: { ausLow: 60, ausHigh: 100, impLow: 35, impHigh: 60, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Pot catch (live)", days: "Day 0" },
+      { step: "Holding & transport (live)", days: "0–1" },
+      { step: "Wholesale (live)", days: "1–2" },
+      { step: "Retail / restaurant (live)", days: "2–4" },
+      { step: "Total AUS days to plate (live)", days: "2–4" },
+    ],
+    lookAlikes: [
+      { name: "Imported pond-farmed mud crab (Sri Lanka, Indonesia, Philippines)", whyConfused: "Same species (Scylla serrata).", howToTell: "Australian wild mud crab is heavier-shelled, fuller-meated, and sold live with traceability. Imports often arrive frozen-cooked or in poor condition after transport." },
+    ],
+    regulations: { sizeLimit: "150mm (NT)", sourceId: "nt-fisheries", note: "Strict size limits; berried females (carrying eggs) cannot be taken." },
+    keyOperators: [
+      { name: "Northern Territory Seafood Council", type: "peak-body", region: "NT", url: "https://www.ntsc.com.au/" },
+      { name: "Queensland Seafood Industry Association", type: "peak-body", region: "QLD" },
+    ],
+    history: [
+      { year: 1984, note: "NT mud crab fishery formalised." },
+      { year: 2010, note: "Indigenous customary fishing rights co-managed in NT/QLD waters." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ========================== BLUE SWIMMER CRAB ========================== */
+  "blue-swimmer-crab": {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "WA Cockburn Sound and Peel-Harvey rebuilding; NSW and SA stocks sustainable." },
+    productionHistory: [
+      { year: 2019, tonnes: 700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 650, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 720, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 780, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 800, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Pot (baited)", note: "Dominant gear." },
+      { method: "Recreational scoop & drop-net", note: "Major rec-fishing target in WA and SA estuaries." },
+    ],
+    mercury: { aus: 0.03, imp: 0.05, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "documented", citationId: "daff-imported-food", provenance: "primary" },
+    priceRange: { ausLow: 28, ausHigh: 42, impLow: 18, impHigh: 28, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Pot catch (live)", days: "Day 0" },
+      { step: "Holding tanks", days: "0–1" },
+      { step: "Wholesale (live)", days: "1–2" },
+      { step: "Retail / restaurant (live)", days: "2–3" },
+      { step: "Total AUS days to plate", days: "2–3 (live)" },
+    ],
+    lookAlikes: [
+      { name: "Imported tinned crab meat (Indonesia, Vietnam, India)", whyConfused: "Pasteurised picked meat sold as 'crab'.", howToTell: "Australian Blue Swimmer is sold live or fresh-picked. Tinned 'crab meat' is almost always imported." },
+    ],
+    regulations: { bagLimit: "10/day (WA recreational)", sizeLimit: "127mm carapace (WA)", sourceId: "wa-dpird-fisheries" },
+    keyOperators: [
+      { name: "WA Fishing Industry Council", type: "peak-body", region: "WA" },
+      { name: "Sydney Fish Market", type: "market", region: "NSW", url: "https://www.sydneyfishmarket.com.au/" },
+    ],
+    history: [
+      { year: 2014, note: "WA Cockburn Sound closure following stock collapse." },
+      { year: 2019, note: "Cockburn Sound reopens after rebuilding." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================= SPANNER CRAB ============================ */
+  "spanner-crab": {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "msc-spanner-crab", note: "MSC-certified QLD fishery — one of Australia's smaller-volume premium crustacean fisheries." },
+    productionHistory: [
+      { year: 2019, tonnes: 1100, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 950, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 1000, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 1100, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 1150, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Tangle-net (apparatus)", note: "Low-impact — flat dilly nets sit on sandy bottom." },
+    ],
+    mercury: { aus: 0.04, imp: 0.06, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 35, ausHigh: 55, impLow: 22, impHigh: 35, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Net haul (live)", days: "Day 0" },
+      { step: "Onshore holding", days: "0–1" },
+      { step: "Live export or domestic wholesale", days: "1–2" },
+      { step: "Retail / restaurant", days: "2–3" },
+      { step: "Total AUS days to plate (live)", days: "2–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported generic crab products", whyConfused: "Sold under non-specific 'crab' branding.", howToTell: "Genuine Australian Spanner Crab is a unique-looking species (Ranina ranina) — bright red, with paddle-shaped legs unlike any other Australian crab." },
+    ],
+    regulations: { quotaTonnes: 1500, sizeLimit: "100mm rostral length", sourceId: "qld-fisheries", note: "Quota- and area-managed. MSC certified since 2016." },
+    keyOperators: [
+      { name: "Queensland Spanner Crab Fishery (MSC)", type: "peak-body", region: "QLD", url: "https://fisheries.msc.org/en/fisheries/queensland-spanner-crab/" },
+    ],
+    history: [
+      { year: 1998, note: "Quota system introduced for QLD spanner crab." },
+      { year: 2016, note: "QLD Spanner Crab achieves MSC certification — one of few Australian crustacean MSC fisheries." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* =============================== SCALLOPS ============================== */
+  scallops: {
+    stockStatus: { rating: "sustainable-rebuilding", year: 2024, citationId: "safs-2024", note: "Bass Strait Scallop Fishery (BSCSF) operates under rebuilding strategy; Hervey Bay roe-on scallops sustainable." },
+    productionHistory: [
+      { year: 2019, tonnes: 1800, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 1600, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 1700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 1900, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 2000, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Dredge (Bass Strait)", note: "Commonwealth-managed; rotational area closures." },
+      { method: "Hand-collected by divers", note: "Hervey Bay; lowest-impact." },
+    ],
+    mercury: { aus: 0.02, imp: 0.04, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 45, ausHigh: 80, impLow: 25, impHigh: 50, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Catch (dredge or dive)", days: "Day 0" },
+      { step: "Onboard chill or live tank", days: "0–1" },
+      { step: "Wholesale", days: "1–2" },
+      { step: "Retail / restaurant", days: "2–4" },
+      { step: "Total AUS days to plate", days: "2–4" },
+    ],
+    lookAlikes: [
+      { name: "Imported water-injected (STPP-treated) scallops", whyConfused: "Sold roe-off with sodium tripolyphosphate plumping agent — pale, swollen, leak liquid in the pan.", howToTell: "Australian roe-on scallops are dry-pack, smaller, and brown when seared. Treated imports are pure white and exude liquid when cooked." },
+    ],
+    regulations: { sourceId: "afma-harvest-strategies", note: "Commonwealth Bass Strait fishery uses rotational closures to allow stocks to rebuild." },
+    keyOperators: [
+      { name: "Bass Strait Central Zone Scallop Fishery", type: "peak-body", region: "Bass Strait" },
+      { name: "Hervey Bay Scallop Cooperative", type: "coop", region: "QLD" },
+    ],
+    history: [
+      { year: 1981, note: "Bass Strait Scallop Fishery enters first major management framework." },
+      { year: 2008, note: "Multi-year closures introduced in response to stock decline." },
+      { year: 2018, note: "Stocks begin to rebuild under rotational closure regime." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ============================== CALAMARI ============================== */
+  calamari: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Southern Calamari (Sepioteuthis australis) widely distributed; sustainable hand-jig fishery." },
+    productionHistory: [
+      { year: 2019, tonnes: 600, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 580, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 620, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 750, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Hand-jig (squid jig)", note: "Selective; most low-impact gear in Australian commercial fishing." },
+      { method: "Beach seine (limited)", note: "Some VIC & TAS coastal operations." },
+    ],
+    mercury: { aus: 0.02, imp: 0.04, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 22, ausHigh: 38, impLow: 12, impHigh: 18, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Hand-jig catch", days: "Day 0" },
+      { step: "Onshore chill", days: "0–1" },
+      { step: "Wholesale", days: "1–2" },
+      { step: "Retail / restaurant", days: "2–3" },
+      { step: "Total AUS days to plate", days: "2–3" },
+    ],
+    lookAlikes: [
+      { name: "Imported squid rings (China, Vietnam, Thailand)", whyConfused: "Frozen IQF rings dominate retail and foodservice.", howToTell: "Australian Southern Calamari has thick, sweet, very-tender flesh and is sold whole or in tubes. Frozen rings are often industrial trawl-caught and chemically treated." },
+      { name: "Arrow squid (Nototodarus gouldi)", whyConfused: "Different species; tougher flesh; cheaper.", howToTell: "True calamari has fins running the full length of the body; arrow squid fins are limited to the rear third." },
+    ],
+    regulations: { sourceId: "vfa-stock", note: "Effort-managed across multiple state fisheries." },
+    keyOperators: [
+      { name: "Victorian Fisheries Authority", type: "peak-body", region: "VIC", url: "https://vfa.vic.gov.au/" },
+      { name: "Sydney Fish Market", type: "market", region: "NSW" },
+    ],
+    history: [
+      { year: 1990, note: "Southern Calamari hand-jig fishery formalised in Victoria." },
+      { year: 2015, note: "Marketing as premium 'calamari' (vs imported squid) gains traction." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* ================================ OCTOPUS ============================== */
+  octopus: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "Octopus pallidus (TAS) and Octopus tetricus (mainland) are sustainably managed pot fisheries." },
+    productionHistory: [
+      { year: 2019, tonnes: 380, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 350, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 400, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 450, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 480, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Trigger pot (octopus pot)", note: "Low-impact; bait-attracted; species-selective." },
+    ],
+    mercury: { aus: 0.05, imp: 0.08, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary" },
+    antibiotics: { aus: "none", imp: "rare", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 28, ausHigh: 45, impLow: 22, impHigh: 35, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Pot catch", days: "Day 0" },
+      { step: "Onshore chill / freeze", days: "0–1" },
+      { step: "Wholesale", days: "1–3" },
+      { step: "Retail / restaurant", days: "2–5" },
+      { step: "Total AUS days to plate", days: "2–5" },
+    ],
+    lookAlikes: [
+      { name: "Imported octopus (Spain, Morocco, China)", whyConfused: "Same broad genus; mechanically tenderised before sale.", howToTell: "Australian octopus is increasingly sold raw and untreated. Imports often arrive pre-cooked, bleached, or mechanically tenderised." },
+    ],
+    regulations: { sourceId: "tas-nre-fisheries" },
+    keyOperators: [
+      { name: "Octopus Australis Pty Ltd", type: "processor", region: "TAS" },
+      { name: "Tasmanian Seafoods", type: "processor", region: "TAS" },
+    ],
+    history: [
+      { year: 2000, note: "Trigger-pot gear scales in Tasmania, replacing trap-gear methods." },
+      { year: 2018, note: "Australian octopus exports to EU and Asia grow as a niche premium category." },
+    ],
+    mediaWatch: [],
+  },
+
+  /* =============================== SARDINES ============================= */
+  sardines: {
+    stockStatus: { rating: "sustainable", year: 2024, citationId: "safs-2024", note: "South Australian sardine fishery is Australia's largest by volume; tightly assessment-controlled annual quota." },
+    productionHistory: [
+      { year: 2019, tonnes: 32000, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 30000, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 38000, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 42000, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 44000, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Purse-seine", note: "Highly selective for schooling pelagics; minimal bycatch." },
+    ],
+    mercury: { aus: 0.02, imp: 0.03, unit: "mg/kg", citationId: "fsanz-tds", provenance: "primary", note: "Small pelagics are among the lowest-mercury seafoods." },
+    antibiotics: { aus: "none", imp: "none", citationId: "fsanz-residues", provenance: "primary" },
+    priceRange: { ausLow: 6, ausHigh: 14, impLow: 8, impHigh: 18, unit: "$/kg", asOf: "2026 Q1", provenance: "editorial" },
+    supplyChain: [
+      { step: "Purse-seine catch (Port Lincoln)", days: "Day 0" },
+      { step: "Onshore freeze or fresh-pack", days: "0" },
+      { step: "Wholesale (fresh / bait / tuna feed)", days: "1–2" },
+      { step: "Retail / fresh fishmonger", days: "2–4" },
+      { step: "Total AUS days to plate (fresh)", days: "2–4" },
+    ],
+    lookAlikes: [
+      { name: "Imported tinned sardines (Morocco, Portugal, Spain, Peru)", whyConfused: "Australia produces almost no tinned sardines.", howToTell: "Tinned sardines are essentially always imported. Buy fresh or frozen Australian sardines from a fishmonger when available." },
+    ],
+    regulations: { quotaTonnes: 38000, sourceId: "pirsa-fisheries", note: "TACC (Total Allowable Commercial Catch) set annually based on assessment of biomass." },
+    keyOperators: [
+      { name: "Australian Sardine Fisheries", type: "coop", region: "Port Lincoln, SA" },
+      { name: "PIRSA Fisheries (regulator)", type: "peak-body", region: "SA", url: "https://pir.sa.gov.au/" },
+    ],
+    history: [
+      { year: 1995, note: "Mass mortality event reduces SA sardine biomass dramatically." },
+      { year: 1998, note: "Second mass mortality event prompts industry-wide management reform." },
+      { year: 2010, note: "Stock fully rebuilt; SA Sardine Fishery becomes Australia's largest by volume." },
+    ],
+    mediaWatch: [],
+  },
+
   /* ============================ ROCK LOBSTER ============================ */
   "rock-lobster": {
     stockStatus: {

@@ -12,8 +12,8 @@ const NAV_LINKS = [
   { href: "/species", label: "Species" },
   { href: "/areas", label: "Areas" },
   { href: "/compare", label: "Compare" },
-  { href: "/industry", label: "Industry" },
-  { href: "/labelling", label: "Labelling" },
+  { href: "/find-australian", label: "Find Local" },
+  { href: "/operators", label: "For Operators" },
 ];
 
 export function PageShell({ children }: { children: React.ReactNode }) {
@@ -63,6 +63,8 @@ export function PageShell({ children }: { children: React.ReactNode }) {
             <li><Link href="/compare">Comparisons</Link></li>
             <li><Link href="/industry">Industry</Link></li>
             <li><Link href="/areas">States &amp; regions</Link></li>
+            <li><Link href="/find-australian">Find Australian (consumers)</Link></li>
+            <li><Link href="/operators">For hospitality operators</Link></li>
           </ul>
         </div>
         <div className="footer-col">

@@ -24,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/risks-of-imported",
     "/labelling",
     "/research",
+    "/operators",
+    "/find-australian",
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: now,

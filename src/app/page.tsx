@@ -18,6 +18,7 @@ export default function Home() {
           <a href="#indigenous">First Peoples</a>
           <a href="#economy">Economy</a>
           <a href="#labels">Reading Labels</a>
+          <a href="/labelling">Labelling Law</a>
           <a href="#compare" className="nav-cta">
             Compare Now
           </a>

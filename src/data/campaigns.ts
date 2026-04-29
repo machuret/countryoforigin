@@ -152,7 +152,7 @@ export const whyAustralianPillars: CampaignPage[] = [
       href: "/areas",
       label: "Explore states & regions",
     },
-    citationIds: ["abares-fisheries-stats", "frdc-employment", "native-title-1993"],
+    citationIds: ["abares-fisheries-stats", "frdc-economic-contribution", "native-title-1993"],
   },
   {
     slug: "environment",

@@ -8,11 +8,12 @@ import Link from "next/link";
  * of truth for the global navigation.
  */
 const NAV_LINKS = [
+  { href: "/why-australian", label: "Why Australian" },
   { href: "/species", label: "Species" },
+  { href: "/areas", label: "Areas" },
   { href: "/compare", label: "Compare" },
   { href: "/industry", label: "Industry" },
-  { href: "/areas", label: "Areas" },
-  { href: "/labelling", label: "Labelling Law" },
+  { href: "/labelling", label: "Labelling" },
 ];
 
 export function PageShell({ children }: { children: React.ReactNode }) {
@@ -46,6 +47,14 @@ export function PageShell({ children }: { children: React.ReactNode }) {
           <p className="footer-desc">
             An independent resource helping Australians make informed seafood choices.
           </p>
+        </div>
+        <div className="footer-col">
+          <h4>The case</h4>
+          <ul>
+            <li><Link href="/why-australian">Why Australian seafood</Link></li>
+            <li><Link href="/risks-of-imported">Risks of imported</Link></li>
+            <li><Link href="/research">Research &amp; citations</Link></li>
+          </ul>
         </div>
         <div className="footer-col">
           <h4>Explore</h4>

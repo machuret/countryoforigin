@@ -4,6 +4,7 @@ import { industries } from "@/data/industries";
 import { areas, areaUrl } from "@/data/areas";
 import { comparisons } from "@/data/comparisons";
 import { whyAustralianPillars, riskPages } from "@/data/campaigns";
+import { recipes } from "@/data/recipes";
 
 const BASE_URL = "https://countryoforigin.com.au";
 
@@ -26,6 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/research",
     "/operators",
     "/find-australian",
+    "/recipes",
+    "/seasonal",
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: now,
@@ -75,6 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const recipeRoutes = recipes.map((r) => ({
+    url: `${BASE_URL}/recipes/${r.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...speciesRoutes,
@@ -83,5 +93,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...compareRoutes,
     ...whyRoutes,
     ...riskRoutes,
+    ...recipeRoutes,
   ];
 }

@@ -14,6 +14,7 @@ import {
 import { comparisonBySlug } from "@/data/comparisons";
 import { areaBySlug, areaUrl } from "@/data/areas";
 import { citationById } from "@/data/citations";
+import { recipeBySlug } from "@/data/recipes";
 
 type Params = { slug: string };
 
@@ -50,6 +51,8 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
   const compare = s.related?.compare?.[0]
     ? comparisonBySlug(s.related.compare[0])
     : undefined;
+
+  const recipe = recipeBySlug(s.slug);
 
   const sigRegions = (s.signatureRegions ?? [])
     .map((sl) => areaBySlug(sl))
@@ -181,6 +184,13 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
                   </div>
                 ))}
               </div>
+              {recipe && (
+                <p style={{ marginTop: "1.5rem" }}>
+                  <Link href={`/recipes/${recipe.slug}`} className="btn-primary">
+                    Full recipe: {recipe.name} →
+                  </Link>
+                </p>
+              )}
             </>
           )}
 

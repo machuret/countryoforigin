@@ -12,6 +12,8 @@ const NAV_LINKS = [
   { href: "/species", label: "Species" },
   { href: "/areas", label: "Areas" },
   { href: "/compare", label: "Compare" },
+  { href: "/recipes", label: "Recipes" },
+  { href: "/seasonal", label: "Seasonal" },
   { href: "/find-australian", label: "Find Local" },
   { href: "/operators", label: "For Operators" },
 ];

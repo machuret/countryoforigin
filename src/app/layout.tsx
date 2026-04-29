@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { Playfair_Display, Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
+/**
+ * Variable-axis fonts. Google Fonts ships Playfair Display and Barlow
+ * with full weight axes — we ship ONE WOFF2 per family covering the full
+ * 100–900 range. Barlow Condensed is static-only; we ship just 600 + 700
+ * because no body text uses it (eyebrows, buttons, tags only).
+ */
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: "variable",
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -13,14 +19,17 @@ const playfair = Playfair_Display({
 const barlow = Barlow({
   variable: "--font-barlow",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  /* Barlow is not available as a variable font on Google Fonts.
+   * Ship only the three weights actually used in the design system:
+   * 400 (body), 600 (UI bold), 700 (numerals). */
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 

@@ -2832,6 +2832,164 @@ body {
 }
 
 /* ============================================================
+ * /HEALTH PAGE
+ * ========================================================== */
+.health-headline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+}
+.health-headline {
+  background: rgba(30, 158, 128, 0.08);
+  border: 1px solid rgba(30, 158, 128, 0.25);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.health-headline__uplift {
+  font-family: var(--f-serif);
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  color: var(--teal);
+  line-height: var(--lh-tight);
+}
+.health-headline__name {
+  font-family: var(--f-cond);
+  font-size: var(--fs-200);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.health-headline__values {
+  font-size: var(--fs-200);
+  color: var(--text-mid);
+}
+
+.health-nutrients {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+}
+.health-nutrient {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.6rem 1.8rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+@media (min-width: 900px) {
+  .health-nutrient { grid-template-columns: 1fr 1.4fr; gap: 2rem; }
+}
+.health-nutrient__head h3 {
+  font-family: var(--f-serif);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+}
+.health-nutrient__role {
+  margin: 0 0 0.7rem;
+  color: var(--text-dark);
+  line-height: var(--lh-body);
+}
+.health-nutrient__why {
+  margin: 0;
+  font-size: var(--fs-200);
+  color: var(--text-mid);
+  line-height: var(--lh-body);
+}
+.health-nutrient__why strong { color: var(--teal); }
+
+.health-nutrient__chart {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem;
+}
+.health-nutrient__chart-title {
+  margin: 0 0 0.8rem;
+  font-family: var(--f-cond);
+  font-size: var(--fs-100);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.health-nutrient__row {
+  display: grid;
+  grid-template-columns: 110px 1fr 80px;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+.health-nutrient__name {
+  font-size: var(--fs-200);
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.health-nutrient__name:hover { color: var(--teal); text-decoration: underline; }
+.health-nutrient__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 3px;
+}
+.health-nutrient__bar { height: 10px; border-radius: 2px; }
+.health-nutrient__bar--aus { background: var(--teal); }
+.health-nutrient__bar--imp { background: var(--coral); opacity: 0.55; }
+.health-nutrient__values {
+  text-align: right;
+  font-size: var(--fs-200);
+}
+.health-nutrient__aus {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+}
+.health-nutrient__delta {
+  display: block;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: var(--fs-100);
+}
+.health-nutrient__legend {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.7rem;
+  font-size: var(--fs-100);
+  color: var(--text-mid);
+}
+.health-nutrient__swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.health-nutrient__swatch--aus { background: var(--teal); }
+.health-nutrient__swatch--imp { background: var(--coral); opacity: 0.55; }
+
+.health-claim__cites {
+  margin: 0.8rem 0 0;
+  font-size: var(--fs-100);
+  color: var(--text-light);
+}
+
+/* ============================================================
  * INDUSTRY DASHBOARDS
  * ========================================================== */
 .dashboard-figure {

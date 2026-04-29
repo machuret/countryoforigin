@@ -30,6 +30,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     label: "Learn",
     items: [
+      { href: "/health", label: "Health", desc: "What seafood does for you, nutrient by nutrient." },
       { href: "/glossary", label: "Glossary", desc: "Every term defined." },
       { href: "/faq", label: "FAQ", desc: "Cited answers to common questions." },
       { href: "/myths", label: "Myths vs Facts", desc: "Common misconceptions corrected." },

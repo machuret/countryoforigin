@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/recipes",
     "/seasonal",
     "/glossary",
+    "/health",
     "/faq",
     "/myths",
     "/label-guide",

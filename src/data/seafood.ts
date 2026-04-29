@@ -13,7 +13,15 @@ export type SeafoodComparison = {
   impScore: string;
 };
 
-export type FishKey = "barramundi" | "salmon" | "prawns" | "tuna" | "oysters";
+export type FishKey =
+  | "barramundi"
+  | "salmon"
+  | "prawns"
+  | "tuna"
+  | "oysters"
+  | "abalone"
+  | "mussels"
+  | "rocklobster";
 
 export const fishData: Record<FishKey, SeafoodComparison> = {
   barramundi: {
@@ -58,8 +66,7 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
       { label: "Traceability", aus: "Full chain", imp: "Limited", ausGood: true },
       { label: "Price per 100g", aus: "~$5.00", imp: "~$2.50", ausGood: false },
     ],
-    ausScore:
-      "Spencer Gulf King Prawns score 9.5/10 — globally recognised as among the world's finest.",
+    ausScore: "Spencer Gulf King Prawns score 9.5/10 — globally recognised as among the world's finest.",
     impScore: "Imported prawns score 5.2/10 — significant variation in quality, additives, and ethics.",
   },
   tuna: {
@@ -92,6 +99,60 @@ export const fishData: Record<FishKey, SeafoodComparison> = {
     ausScore: "Sydney Rock Oysters score 9.8/10 — unique endemic species with unmatched freshness.",
     impScore: "Imported oysters score 6.0/10 — freshness and food safety risks increase with distance.",
   },
+  abalone: {
+    aus: { name: "Australian Greenlip Abalone", origin: "Tasmania, Vic, SA, WA", country: "Australia" },
+    imp: { name: "Imported Abalone", origin: "China / Korea / Mexico", country: "Asia / Americas" },
+    metrics: [
+      { label: "Protein (per 100g)", aus: "17.1g", imp: "15.2g", ausGood: true },
+      { label: "Iron (per 100g)", aus: "3.2mg", imp: "2.1mg", ausGood: true },
+      { label: "Wild vs. Farmed", aus: "Wild-caught divers", imp: "Often farmed", ausGood: true },
+      { label: "Sustainability Quota", aus: "TAC-managed", imp: "Often unregulated", ausGood: true },
+      { label: "Traceability", aus: "Diver-to-plate", imp: "Limited", ausGood: true },
+      { label: "Heavy Metals", aus: "Pristine waters", imp: "Variable", ausGood: true },
+      { label: "Price per 100g", aus: "~$15.00", imp: "~$8.00", ausGood: false },
+    ],
+    ausScore:
+      "Australian abalone scores 9.6/10 — world's largest wild fishery, dive-caught with strict quotas.",
+    impScore:
+      "Imported abalone scores 5.4/10 — often farmed with feed additives; many nations face stock collapse.",
+  },
+  mussels: {
+    aus: { name: "Australian Blue Mussels", origin: "Tasmania, Victoria, SA", country: "Australia" },
+    imp: { name: "Imported Mussels", origin: "New Zealand / Chile / Spain", country: "Various" },
+    metrics: [
+      { label: "Protein (per 100g)", aus: "11.9g", imp: "11.2g", ausGood: true },
+      { label: "Omega-3 (per 100g)", aus: "700mg", imp: "550mg", ausGood: true },
+      { label: "Time to Table", aus: "1–4 days", imp: "10–21 days", ausGood: true },
+      { label: "Iron (per 100g)", aus: "6.7mg", imp: "5.3mg", ausGood: true },
+      { label: "Farming Method", aus: "Long-line, no feed", imp: "Variable", ausGood: true },
+      { label: "Carbon Footprint", aus: "Among lowest in seafood", imp: "Higher (transport)", ausGood: true },
+      { label: "Price per kg", aus: "~$12", imp: "~$10", ausGood: false },
+    ],
+    ausScore:
+      "Australian mussels score 9.4/10 — clean rope-grown protein with one of seafood's smallest footprints.",
+    impScore: "Imported mussels score 6.8/10 — quality is good but freshness drops with transit.",
+  },
+  rocklobster: {
+    aus: {
+      name: "Southern Rock Lobster",
+      origin: "Tasmania, SA, Victoria",
+      country: "Australia",
+    },
+    imp: { name: "Imported Lobster", origin: "Canada / USA / Cuba", country: "N. America / Caribbean" },
+    metrics: [
+      { label: "Protein (per 100g)", aus: "20.5g", imp: "18.9g", ausGood: true },
+      { label: "Selenium (per 100g)", aus: "75µg", imp: "55µg", ausGood: true },
+      { label: "Wild vs. Farmed", aus: "Wild-caught (pots)", imp: "Wild-caught", ausGood: true },
+      { label: "Quota Management", aus: "Stock-status assessed", imp: "Variable", ausGood: true },
+      { label: "Live Trade Standards", aus: "World-leading", imp: "Variable", ausGood: true },
+      { label: "Bycatch Rate", aus: "Very low (pot fishery)", imp: "Variable", ausGood: true },
+      { label: "Price per kg", aus: "~$120", imp: "~$70", ausGood: false },
+    ],
+    ausScore:
+      "Southern Rock Lobster scores 9.3/10 — premium wild-caught quality with sustainable pot-fishery management.",
+    impScore:
+      "Imported lobster scores 6.5/10 — freshness varies, especially for frozen or long-haul live shipments.",
+  },
 };
 
 export type NutBar = {
@@ -102,7 +163,7 @@ export type NutBar = {
   unit: string;
 };
 
-export const nutData: Record<string, NutBar[]> = {
+export const nutData: Record<FishKey, NutBar[]> = {
   barramundi: [
     { name: "Omega-3 Fatty Acids", aus: 820, imp: 480, max: 1000, unit: "mg" },
     { name: "Protein", aus: 22.4, imp: 19.8, max: 28, unit: "g" },
@@ -138,4 +199,69 @@ export const nutData: Record<string, NutBar[]> = {
     { name: "Selenium", aus: 77, imp: 55, max: 100, unit: "µg" },
     { name: "Protein", aus: 9.5, imp: 8.0, max: 14, unit: "g" },
   ],
+  abalone: [
+    { name: "Protein", aus: 17.1, imp: 15.2, max: 22, unit: "g" },
+    { name: "Iron", aus: 3.2, imp: 2.1, max: 5, unit: "mg" },
+    { name: "Vitamin B12", aus: 0.7, imp: 0.5, max: 1.5, unit: "µg" },
+    { name: "Selenium", aus: 45, imp: 32, max: 60, unit: "µg" },
+    { name: "Magnesium", aus: 48, imp: 36, max: 70, unit: "mg" },
+  ],
+  mussels: [
+    { name: "Omega-3 Fatty Acids", aus: 700, imp: 550, max: 900, unit: "mg" },
+    { name: "Protein", aus: 11.9, imp: 11.2, max: 16, unit: "g" },
+    { name: "Iron", aus: 6.7, imp: 5.3, max: 9, unit: "mg" },
+    { name: "Vitamin B12", aus: 24, imp: 19, max: 30, unit: "µg" },
+    { name: "Selenium", aus: 89, imp: 70, max: 110, unit: "µg" },
+  ],
+  rocklobster: [
+    { name: "Protein", aus: 20.5, imp: 18.9, max: 25, unit: "g" },
+    { name: "Selenium", aus: 75, imp: 55, max: 100, unit: "µg" },
+    { name: "Vitamin B12", aus: 1.4, imp: 1.0, max: 2, unit: "µg" },
+    { name: "Zinc", aus: 3.5, imp: 2.8, max: 5, unit: "mg" },
+    { name: "Copper", aus: 1.6, imp: 1.2, max: 2, unit: "mg" },
+  ],
 };
+
+/* OYSTER VARIETIES (for the species page sub-grid) */
+export type OysterVariety = {
+  key: string;
+  name: string;
+  scientific: string;
+  origin: string;
+  flavour: string;
+  notes: string;
+  status: "native" | "naturalised";
+};
+
+export const oysterVarieties: OysterVariety[] = [
+  {
+    key: "sydney-rock",
+    name: "Sydney Rock Oyster",
+    scientific: "Saccostrea glomerata",
+    origin: "NSW & southern Queensland estuaries",
+    flavour: "Sweet, creamy, mineral finish",
+    notes:
+      "Australia's iconic native oyster — slower-growing than Pacifics, prized for depth of flavour and resilience to estuarine conditions.",
+    status: "native",
+  },
+  {
+    key: "pacific",
+    name: "Pacific Oyster",
+    scientific: "Crassostrea gigas",
+    origin: "Tasmania, SA, Coffin Bay",
+    flavour: "Brisk, briny, cucumber-like",
+    notes:
+      "Introduced from Japan and now the dominant farmed species in cool southern waters; grows fast and is the basis of Coffin Bay's reputation.",
+    status: "naturalised",
+  },
+  {
+    key: "angasi",
+    name: "Native Angasi Oyster",
+    scientific: "Ostrea angasi",
+    origin: "Tasmania, SA, Victoria",
+    flavour: "Rich, umami, almost mushroomy",
+    notes:
+      "Australia's flat oyster — once nearly lost to overharvest, now subject of restoration projects rebuilding shellfish reefs.",
+    status: "native",
+  },
+];

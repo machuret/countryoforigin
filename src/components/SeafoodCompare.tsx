@@ -9,6 +9,9 @@ const FISH_OPTIONS: { key: FishKey; emoji: string; label: string }[] = [
   { key: "prawns", emoji: "🦐", label: "Prawns" },
   { key: "tuna", emoji: "🐡", label: "Tuna" },
   { key: "oysters", emoji: "🦪", label: "Oysters" },
+  { key: "abalone", emoji: "🐚", label: "Abalone" },
+  { key: "mussels", emoji: "🫧", label: "Mussels" },
+  { key: "rocklobster", emoji: "🦞", label: "Rock Lobster" },
 ];
 
 export function SeafoodCompare() {

@@ -195,6 +195,38 @@ export default function Home() {
                 origin: "Western Australia",
                 tags: ["Low Fat", "MSC Certified", "World's Largest"],
               },
+              {
+                cls: "sc-lobster",
+                emoji: "🦞",
+                status: "wild",
+                title: "Southern Rock Lobster",
+                origin: "Tasmania, SA & Victoria",
+                tags: ["Live Export Premium", "Pot-caught", "Stock-status Assessed"],
+              },
+              {
+                cls: "sc-oyster",
+                emoji: "🐚",
+                status: "wild",
+                title: "Greenlip Abalone",
+                origin: "Tasmania, Vic, SA, WA",
+                tags: ["Dive Caught", "TAC Quota", "World's Largest Wild Fishery"],
+              },
+              {
+                cls: "sc-oyster",
+                emoji: "🫧",
+                status: "farmed",
+                title: "Blue Mussels",
+                origin: "Tasmania & Victoria",
+                tags: ["Rope Grown", "Low Carbon", "No Feed Required"],
+              },
+              {
+                cls: "sc-barramundi",
+                emoji: "✨",
+                status: "farmed",
+                title: "South Sea Pearls",
+                origin: "Western Australia (Broome)",
+                tags: ["World's Finest", "Sustainable Pinctada Maxima", "Cultural Heritage"],
+              },
             ].map((s) => (
               <div className="seafood-card" key={s.title}>
                 <div className="seafood-img">
@@ -210,6 +242,108 @@ export default function Home() {
                   <div className="seafood-origin">{s.origin}</div>
                   <div className="seafood-tags">
                     {s.tags.map((t, i) => (
+                      <span
+                        key={t}
+                        className={`tag ${["tag-green", "tag-blue", "tag-gold"][i % 3]}`}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OYSTER VARIETIES */}
+      <section style={{ background: "var(--sand-light)" }}>
+        <div className="section">
+          <span className="section-tag">Spotlight</span>
+          <h2 className="section-title">
+            Australian Oysters — <span style={{ color: "var(--teal)" }}>Three Distinct Varieties</span>
+          </h2>
+          <p className="section-desc">
+            &ldquo;Oyster&rdquo; on a menu can mean very different things. Australia farms three
+            distinct species, each with its own native range, growing time, and flavour profile.
+          </p>
+          <div className="seafood-grid">
+            {[
+              {
+                key: "sydney-rock",
+                title: "Sydney Rock Oyster",
+                sci: "Saccostrea glomerata",
+                origin: "NSW & southern QLD estuaries",
+                flavour: "Sweet, creamy, mineral finish",
+                notes:
+                  "Australia's iconic native oyster. Slower-growing than Pacifics, prized for depth of flavour and resilience to estuarine conditions.",
+                tags: ["Native", "Estuarine", "3+ Years Growth"],
+                cls: "sc-oyster",
+              },
+              {
+                key: "pacific",
+                title: "Pacific Oyster",
+                sci: "Crassostrea gigas",
+                origin: "Tasmania, SA, Coffin Bay",
+                flavour: "Brisk, briny, cucumber-like",
+                notes:
+                  "Introduced from Japan, now the dominant farmed species in cool southern waters. Fast-growing and behind Coffin Bay's reputation.",
+                tags: ["Naturalised", "Cold Water", "12–18 Months Growth"],
+                cls: "sc-oyster",
+              },
+              {
+                key: "angasi",
+                title: "Native Angasi (Flat) Oyster",
+                sci: "Ostrea angasi",
+                origin: "Tasmania, SA, Victoria",
+                flavour: "Rich, umami, almost mushroomy",
+                notes:
+                  "Australia's flat oyster. Once nearly lost to overharvest, now part of restoration projects rebuilding shellfish reefs.",
+                tags: ["Native", "Restoration Species", "Premium Rare"],
+                cls: "sc-oyster",
+              },
+            ].map((o) => (
+              <div className="seafood-card" key={o.key}>
+                <div className="seafood-img">
+                  <div className={`seafood-img-bg ${o.cls}`}>🦪</div>
+                  <span
+                    className={`seafood-status ${
+                      o.tags[0] === "Native" ? "status-wild" : "status-farmed"
+                    }`}
+                  >
+                    {o.tags[0]}
+                  </span>
+                </div>
+                <div className="seafood-info">
+                  <h3>{o.title}</h3>
+                  <div className="seafood-origin">
+                    <em style={{ fontStyle: "italic" }}>{o.sci}</em>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: "0.78rem",
+                      color: "var(--text-mid)",
+                      margin: "0.4rem 0 0.6rem",
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    <strong style={{ color: "var(--navy)" }}>Origin:</strong> {o.origin}
+                    <br />
+                    <strong style={{ color: "var(--navy)" }}>Flavour:</strong> {o.flavour}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "0.78rem",
+                      color: "var(--text-mid)",
+                      lineHeight: 1.55,
+                      marginBottom: "0.8rem",
+                    }}
+                  >
+                    {o.notes}
+                  </p>
+                  <div className="seafood-tags">
+                    {o.tags.map((t, i) => (
                       <span
                         key={t}
                         className={`tag ${["tag-green", "tag-blue", "tag-gold"][i % 3]}`}

@@ -51,15 +51,18 @@ function scanFile(path: string) {
   });
 }
 
-// Skip citations.ts itself — its docstring contains example ids.
-const SKIP_FILES = new Set(["citations.ts"]);
+// Skip the citations source itself — its docstring contains example ids.
+const SKIP_PATHS = new Set([
+  join(ROOT, "data", "citations", "index.ts"),
+  join(ROOT, "data", "citations", "records.ts"),
+]);
 
 function walk(dir: string) {
   readdirSync(dir).forEach((entry) => {
     const p = join(dir, entry);
     const s = statSync(p);
     if (s.isDirectory()) walk(p);
-    else if (/\.(tsx?|md)$/.test(entry) && !SKIP_FILES.has(entry)) scanFile(p);
+    else if (/\.(tsx?|md)$/.test(entry) && !SKIP_PATHS.has(p)) scanFile(p);
   });
 }
 

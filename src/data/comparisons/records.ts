@@ -1,22 +1,4 @@
-import type { Entity, Slug } from "./types";
-
-export type Metric = {
-  label: string;
-  aus: string;
-  imp: string;
-  /** True when the Australian value is the better outcome */
-  ausGood: boolean;
-};
-
-export type Comparison = Entity & {
-  /** Slug of the species this comparison is for (1-1) */
-  speciesSlug: Slug;
-  aus: { name: string; origin: string; country: string };
-  imp: { name: string; origin: string; country: string };
-  metrics: Metric[];
-  ausScore: string;
-  impScore: string;
-};
+import type { Comparison } from "./types";
 
 export const comparisons: Comparison[] = [
   {
@@ -507,7 +489,3 @@ export const comparisons: Comparison[] = [
     impScore: "Imported tinned sardines score 7.0/10 — generally fine but no fresh option.",
   },
 ];
-
-export const comparisonBySlug = (slug: Slug): Comparison | undefined =>
-  comparisons.find((c) => c.slug === slug);
-export const allComparisonSlugs = (): Slug[] => comparisons.map((c) => c.slug);

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { recipes } from "@/data/recipes";
+import { recipes } from "@/data/content/recipes";
 import { speciesBySlug } from "@/data/species";
 
 export const metadata: Metadata = {

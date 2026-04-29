@@ -40,7 +40,7 @@ import type {
   KeyOperator,
   HistoryEntry,
   MediaWatchEntry,
-} from "./species";
+} from "./types";
 
 export type SpeciesDeepData = {
   stockStatus?: StockStatus;

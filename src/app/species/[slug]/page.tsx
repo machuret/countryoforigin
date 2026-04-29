@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { EntityHero } from "@/components/EntityHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { NutritionBars } from "@/components/NutritionBars";
 import { CompareCard } from "@/components/CompareCard";
@@ -14,7 +15,7 @@ import {
 import { comparisonBySlug } from "@/data/comparisons";
 import { areaBySlug, areaUrl } from "@/data/areas";
 import { citationById } from "@/data/citations";
-import { recipeBySlug } from "@/data/recipes";
+import { recipeBySlug } from "@/data/content/recipes";
 import {
   StockStatusBadge,
   ProductionChart,
@@ -26,7 +27,7 @@ import {
   HistoryTimeline,
   MediaWatch,
   GearList,
-} from "@/components/SpeciesDeep";
+} from "@/components/species";
 
 type Params = { slug: string };
 
@@ -72,6 +73,13 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
 
   return (
     <PageShell>
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/species", label: "Species" },
+          { label: s.name },
+        ]}
+      />
       <EntityHero
         eyebrow={s.tagline ?? "Species"}
         title={s.name}

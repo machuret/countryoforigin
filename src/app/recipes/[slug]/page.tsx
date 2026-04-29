@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { EntityHero } from "@/components/EntityHero";
-import { recipeBySlug, allRecipeSlugs } from "@/data/recipes";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { recipeBySlug, allRecipeSlugs } from "@/data/content/recipes";
 import { speciesBySlug } from "@/data/species";
 
 type Params = { slug: string };
@@ -34,6 +35,13 @@ export default async function RecipeDetail({ params }: { params: Promise<Params>
 
   return (
     <PageShell>
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/recipes", label: "Recipes" },
+          { label: r.name },
+        ]}
+      />
       <EntityHero
         eyebrow="Recipe"
         title={r.name}

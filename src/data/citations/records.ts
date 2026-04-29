@@ -1,52 +1,4 @@
-/**
- * =====================================================================
- * CENTRALISED CITATION LIBRARY
- * =====================================================================
- * Every numerical claim on the site cites an id from this file.
- * Add a new source here and reference it from any data file via
- * `citationIds: ["my-new-id"]` or inline via `<Citation id="..." />`.
- *
- * Tiers:
- *   primary    — authoritative government / peer-reviewed / legislative
- *   secondary  — reputable NGO / industry body / quality journalism
- *   estimate   — industry estimate or derived from primary sources
- *   editorial  — our own analysis, explicitly labelled as such
- *
- * Domains (for grouping/filtering on /research):
- *   stock-status · production · trade · nutrition · mercury
- *   labour · environment · regulatory · labelling · indigenous
- *   operators · journalism
- * =====================================================================
- */
-
-export type CitationTier = "primary" | "secondary" | "estimate" | "editorial";
-
-export type CitationDomain =
-  | "stock-status"
-  | "production"
-  | "trade"
-  | "nutrition"
-  | "mercury"
-  | "labour"
-  | "environment"
-  | "regulatory"
-  | "labelling"
-  | "indigenous"
-  | "operators"
-  | "journalism";
-
-export type Citation = {
-  id: string;
-  label: string;           // short label for footnote display
-  title: string;           // full title of the source
-  publisher: string;
-  year?: number;
-  url: string;
-  tier: CitationTier;
-  domain: CitationDomain;
-  accessedDate?: string;   // ISO date if relevant
-  notes?: string;          // editorial annotation
-};
+import type { Citation } from "./types";
 
 export const citations: Citation[] = [
   // ============= STOCK STATUS & FISHERIES MANAGEMENT =============
@@ -946,34 +898,3 @@ export const citations: Citation[] = [
     notes: "Published studies report 10–30% mislabelling at foodservice depending on category; headline figure varies.",
   },
 ];
-
-export const citationById = (id: string): Citation | undefined =>
-  citations.find((c) => c.id === id);
-
-export const citationsByDomain = (domain: CitationDomain): Citation[] =>
-  citations.filter((c) => c.domain === domain);
-
-export const citationsByTier = (tier: CitationTier): Citation[] =>
-  citations.filter((c) => c.tier === tier);
-
-export const CITATION_DOMAINS: { key: CitationDomain; label: string }[] = [
-  { key: "stock-status", label: "Stock status & management" },
-  { key: "production", label: "Production & economics" },
-  { key: "trade", label: "Trade data" },
-  { key: "nutrition", label: "Nutrition" },
-  { key: "mercury", label: "Mercury, antibiotics & residues" },
-  { key: "labour", label: "Labour & human rights" },
-  { key: "environment", label: "Environment & aquaculture" },
-  { key: "regulatory", label: "Regulatory & legal" },
-  { key: "labelling", label: "Labelling & mislabelling" },
-  { key: "indigenous", label: "Indigenous fisheries" },
-  { key: "operators", label: "Operators & peak bodies" },
-  { key: "journalism", label: "Journalism & investigations" },
-];
-
-export const TIER_LABELS: Record<CitationTier, string> = {
-  primary: "Primary source",
-  secondary: "Secondary source",
-  estimate: "Derived estimate",
-  editorial: "Editorial analysis",
-};

@@ -28,20 +28,13 @@ export function Citation({ id }: { id: string }) {
     );
   }
   return (
-    <sup style={{ fontSize: "0.72em", verticalAlign: "super" }}>
-      <a
-        href={`#cite-${id}`}
-        style={{
-          color: "var(--teal)",
-          textDecoration: "none",
-          fontWeight: 600,
-          padding: "0 1px",
-        }}
-        title={`${c.title} — ${c.publisher}${c.year ? ` (${c.year})` : ""}`}
-      >
-        [{c.label}]
-      </a>
-    </sup>
+    <a
+      href={`#cite-${id}`}
+      className="citation-link"
+      title={`${c.title} — ${c.publisher}${c.year ? ` (${c.year})` : ""}`}
+    >
+      {c.label}
+    </a>
   );
 }
 

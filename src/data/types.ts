@@ -4,13 +4,6 @@
  */
 export type Slug = string;
 
-export type ContentBlock =
-  | { kind: "paragraph"; text: string }
-  | { kind: "heading"; text: string; level?: 2 | 3 }
-  | { kind: "list"; items: string[] }
-  | { kind: "callout"; title: string; text: string; tone?: "info" | "warn" | "good" }
-  | { kind: "stat-grid"; stats: { value: string; label: string }[] };
-
 export type Entity = {
   slug: Slug;
   name: string;
@@ -18,8 +11,6 @@ export type Entity = {
   tagline?: string;
   /** One-line description for index cards / SEO */
   summary: string;
-  /** Long-form structured body */
-  body?: ContentBlock[];
   /** Cross-links to other entities by slug */
   related?: {
     species?: Slug[];

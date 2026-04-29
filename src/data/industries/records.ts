@@ -1,15 +1,4 @@
-import type { Entity, Slug } from "./types";
-
-export type Industry = Entity & {
-  /** Card colour theme */
-  theme: "navy" | "teal" | "ocean" | "coral";
-  /** Headline stat shown on cards + hero */
-  headlineStat?: { value: string; label: string };
-  /** Detailed stats shown in detail page */
-  stats?: { value: string; label: string }[];
-  /** Bullet points used by detail page */
-  highlights?: string[];
-};
+import type { Industry } from "./types";
 
 export const industries: Industry[] = [
   {
@@ -148,7 +137,3 @@ export const industries: Industry[] = [
     },
   },
 ];
-
-export const industryBySlug = (slug: Slug): Industry | undefined =>
-  industries.find((i) => i.slug === slug);
-export const allIndustrySlugs = (): Slug[] => industries.map((i) => i.slug);

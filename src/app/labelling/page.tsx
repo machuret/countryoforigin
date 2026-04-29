@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
+import { decodeEntities } from "@/lib/html-entities";
 
 export const metadata: Metadata = {
   title: "Country of Origin Labelling for Seafood — Information Standard 2025",
@@ -182,7 +183,7 @@ export default function LabellingPage() {
               <div className="how-card" key={step.num}>
                 <div className="how-num">{step.num}</div>
                 <h4>{step.title}</h4>
-                <p dangerouslySetInnerHTML={{ __html: step.text }} />
+                <p>{decodeEntities(step.text)}</p>
               </div>
             ))}
           </div>

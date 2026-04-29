@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageShell } from "./PageShell";
 import { EntityHero } from "./EntityHero";
+import { decodeEntities } from "@/lib/html-entities";
 import { citationById } from "@/data/citations";
 import type { CampaignPage } from "@/data/campaigns";
 
@@ -69,11 +70,11 @@ export function CampaignPageTemplate({
           {page.sections.map((s, idx) => (
             <div key={idx} style={{ marginBottom: "2.5rem" }}>
               <h2>{s.heading}</h2>
-              <p dangerouslySetInnerHTML={{ __html: s.body }} />
+              <p>{decodeEntities(s.body)}</p>
               {s.bullets && s.bullets.length > 0 && (
                 <ul>
                   {s.bullets.map((b, i) => (
-                    <li key={i} dangerouslySetInnerHTML={{ __html: b }} />
+                    <li key={i}>{decodeEntities(b)}</li>
                   ))}
                 </ul>
               )}

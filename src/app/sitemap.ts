@@ -4,7 +4,7 @@ import { industries } from "@/data/industries";
 import { areas, areaUrl } from "@/data/areas";
 import { comparisons } from "@/data/comparisons";
 import { whyAustralianPillars, riskPages } from "@/data/campaigns";
-import { recipes } from "@/data/recipes";
+import { recipes } from "@/data/content/recipes";
 
 const BASE_URL = "https://countryoforigin.com.au";
 
@@ -29,6 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/find-australian",
     "/recipes",
     "/seasonal",
+    "/glossary",
+    "/faq",
+    "/myths",
+    "/label-guide",
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: now,

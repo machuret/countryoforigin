@@ -213,8 +213,35 @@ export default function ResearchPage() {
 
           <p style={{ color: "var(--text-light)", fontSize: "0.9rem" }}>
             Showing <strong>{filtered.length}</strong> of {citations.length} sources
-            {filtered.length === 0 && " — try clearing a filter."}
           </p>
+
+          {filtered.length === 0 && (
+            <div
+              style={{
+                padding: "2.5rem 1.5rem",
+                textAlign: "center",
+                background: "var(--cream)",
+                border: "1px dashed var(--border)",
+                borderRadius: 8,
+                marginTop: "1rem",
+              }}
+            >
+              <p style={{ marginBottom: "1rem", fontSize: "1rem" }}>
+                No sources match these filters.
+              </p>
+              <button
+                type="button"
+                className="btn-primary"
+                onClick={() => {
+                  setQuery("");
+                  setDomain("all");
+                  setTier("all");
+                }}
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
 
           {CITATION_DOMAINS.filter((d) => grouped[d.key]?.length).map((d) => (
             <div key={d.key} style={{ marginTop: "2.2rem" }}>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { recipes } from "@/data/content/recipes";
 import { speciesBySlug } from "@/data/species";
+import { SpeciesImage } from "@/components/SpeciesImage";
 
 export const metadata: Metadata = {
   title: "Australian Seafood Recipes — Country of Origin",
@@ -42,7 +43,11 @@ export default function RecipesIndex() {
                   <article className="seafood-card">
                     <div className="seafood-img">
                       <div className={`seafood-img-bg ${sp?.cls ?? "sc-barramundi"}`}>
-                        {sp?.emoji ?? "🐟"}
+                        {sp ? (
+                          <SpeciesImage slug={sp.slug} emoji={sp.emoji} alt={sp.name} variant="thumb" />
+                        ) : (
+                          <span style={{ fontSize: "3rem" }}>🐟</span>
+                        )}
                       </div>
                       <span
                         className="seafood-status"

@@ -3463,3 +3463,86 @@ details.faq[open] > summary::after {
   );
   margin: 2.5rem 0;
 }
+
+/* ===================== SPECIES BANNER IMAGE ===================== */
+.species-banner {
+  width: 100%;
+  max-width: 1200px;
+  margin: -1rem auto 2rem;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.12);
+  position: relative;
+}
+.species-banner img {
+  object-position: center center;
+}
+@media (max-width: 760px) {
+  .species-banner {
+    border-radius: 0;
+    aspect-ratio: 16 / 10;
+    margin: 0 0 1.5rem;
+  }
+}
+
+/* ===================== OTHER SPECIES CAROUSEL ===================== */
+.other-species {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(10, 37, 64, 0.1);
+}
+.other-species-rail {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
+  padding: 0.5rem 0.25rem 1.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.other-species-rail::-webkit-scrollbar {
+  height: 8px;
+}
+.other-species-rail::-webkit-scrollbar-thumb {
+  background: rgba(10, 37, 64, 0.2);
+  border-radius: 4px;
+}
+.other-species-card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+}
+.other-species-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(10, 37, 64, 0.14);
+}
+.other-species-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+.other-species-info {
+  padding: 0.75rem 1rem 1rem;
+}
+.other-species-info h3 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+  color: var(--navy);
+}
+.other-species-info p {
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.4;
+}
+@media (max-width: 760px) {
+  .other-species-card {
+    flex: 0 0 180px;
+  }
+}

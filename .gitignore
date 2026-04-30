@@ -1,3 +1,7 @@
+# Source species photos (2-3MB each PNGs). Run `npm run images` to regenerate
+# the optimized WebP variants in public/species/ (those ARE committed).
+/images/
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies

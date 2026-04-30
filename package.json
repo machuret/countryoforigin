@@ -9,7 +9,8 @@
     "lint": "eslint",
     "check:citations": "npx tsx scripts/check-citations.ts",
     "audit": "npx tsx scripts/audit-content.ts",
-    "audit:ci": "npx tsx scripts/audit-content.ts --ci"
+    "audit:ci": "npx tsx scripts/audit-content.ts --ci",
+    "images": "npx tsx scripts/optimize-images.ts"
   },
   "dependencies": {
     "next": "16.2.4",

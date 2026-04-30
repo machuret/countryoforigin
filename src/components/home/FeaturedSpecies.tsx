@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Species } from "@/data/species";
+import { SpeciesImage } from "@/components/SpeciesImage";
 
 export function FeaturedSpecies({ items }: { items: Species[] }) {
   return (
@@ -20,7 +21,9 @@ export function FeaturedSpecies({ items }: { items: Species[] }) {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div className="seafood-img">
-                <div className={`seafood-img-bg ${s.cls}`}>{s.emoji}</div>
+                <div className={`seafood-img-bg ${s.cls}`}>
+                  <SpeciesImage slug={s.slug} emoji={s.emoji} alt={s.name} variant="thumb" />
+                </div>
                 <span
                   className={`seafood-status ${
                     s.sourcing === "wild" ? "status-wild" : "status-farmed"

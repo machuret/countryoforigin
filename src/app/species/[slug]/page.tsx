@@ -11,7 +11,11 @@ import {
   speciesBySlug,
   allSpeciesSlugs,
   oysterVarieties,
+  species as allSpecies,
 } from "@/data/species";
+import { SpeciesImage } from "@/components/SpeciesImage";
+import { OtherSpeciesCarousel } from "@/components/OtherSpeciesCarousel";
+import { hasSpeciesImage } from "@/data/species/image-manifest";
 import { comparisonBySlug } from "@/data/comparisons";
 import { areaBySlug, areaUrl } from "@/data/areas";
 import { citationById } from "@/data/citations";
@@ -119,6 +123,20 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
           </div>
         )}
       </EntityHero>
+
+      {/* SPECIES BANNER IMAGE */}
+      {hasSpeciesImage(s.slug) && (
+        <div className={`species-banner ${s.cls}`}>
+          <SpeciesImage
+            slug={s.slug}
+            emoji={s.emoji}
+            alt={`${s.name} (${s.scientific ?? "Australian seafood species"})`}
+            variant="hero"
+            priority
+            sizes="(max-width: 760px) 100vw, 1200px"
+          />
+        </div>
+      )}
 
       {/* WHY AUSTRALIAN — 4-PILLAR QUAD */}
       {s.whyAustralian && (
@@ -479,6 +497,11 @@ export default async function SpeciesDetail({ params }: { params: Promise<Params
               </ol>
             </div>
           )}
+
+          {/* OTHER SPECIES CAROUSEL */}
+          <OtherSpeciesCarousel
+            species={allSpecies.filter((sp) => sp.slug !== s.slug)}
+          />
         </div>
       </section>
 

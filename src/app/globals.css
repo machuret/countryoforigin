@@ -3464,6 +3464,36 @@ details.faq[open] > summary::after {
   margin: 2.5rem 0;
 }
 
+/* ===================== /species INDEX CARD WITH IMAGE ===================== */
+.index-card--with-image {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.index-card--with-image > .index-card-eyebrow,
+.index-card--with-image > h3,
+.index-card--with-image > .sci,
+.index-card--with-image > p,
+.index-card--with-image > .index-card-tags,
+.index-card--with-image > .arrow {
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+}
+.index-card--with-image > .index-card-eyebrow {
+  margin-top: 1.2rem;
+}
+.index-card--with-image > .arrow {
+  margin-bottom: 1.4rem;
+}
+.index-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
 /* ===================== SPECIES BANNER IMAGE ===================== */
 .species-banner {
   width: 100%;

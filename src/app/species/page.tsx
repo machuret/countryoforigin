@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { species } from "@/data/species";
+import { SpeciesImage } from "@/components/SpeciesImage";
 
 export const metadata: Metadata = {
   title: "All Australian Seafood Species — Country of Origin",
@@ -30,7 +31,10 @@ export default function SpeciesIndex() {
         <div className="index-inner">
           <div className="index-grid">
             {species.map((s) => (
-              <Link key={s.slug} href={`/species/${s.slug}`} className="index-card">
+              <Link key={s.slug} href={`/species/${s.slug}`} className="index-card index-card--with-image">
+                <div className={`index-card-img ${s.cls}`}>
+                  <SpeciesImage slug={s.slug} emoji={s.emoji} alt={s.name} variant="thumb" />
+                </div>
                 <span className="index-card-eyebrow">
                   {s.tagline ?? (s.sourcing === "wild" ? "Wild Caught" : s.sourcing === "farmed" ? "Aquaculture" : "Wild & Farmed")}
                 </span>

@@ -29,7 +29,7 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | `oysters` | 5 | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🔶 editorial price |
 | `abalone` | 5 | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | 🔶 editorial price |
 | `mussels` | 5 | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | 🔶 editorial price |
-| `rocklobster` | 5 | 1 | ✅ | ✅ | ✅ | — | — | — | ✅ | — | ✅ | ✅ | ✅ | — | 🔶 no mercury data |
+| `rocklobster` | 5 | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | 🔶 editorial price |
 | `western-rock-lobster` | 5 | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🔶 editorial price |
 | `pearls` | 0 | 0 | ✅ | — | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | 🔶 no mercury data<br>🔶 no production history |
 | `snapper` | 5 | 2 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | 🔶 editorial price |

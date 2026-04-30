@@ -13,8 +13,8 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | Areas | 60 | — |
 | Comparisons | 25 | 0 |
 | Recipes | 23 | — |
-| FAQ | 21 | 1 |
-| Myths | 14 | 2 |
+| FAQ | 21 | 0 |
+| Myths | 14 | 0 |
 
 ## Species (25)
 
@@ -188,7 +188,7 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | 1 | buying | How do I know if a fish is actually Australian? | 2 | ✅ |
 | 2 | buying | Why is imported seafood often cheaper? | 1 | ✅ |
 | 3 | buying | What share of seafood eaten in Australia is imported? | 1 | ✅ |
-| 4 | buying | Where can I find lists of Australian-only fishmongers? | 0 | 🚨 no citationIds |
+| 4 | buying | Where can I find lists of Australian-only fishmongers? | 2 | ✅ |
 | 5 | labels | What does 'Made in Australia from imported ingredients' mean for se… | 2 | ✅ |
 | 6 | labels | What changes on 1 July 2026? | 1 | ✅ |
 | 7 | labels | How common is seafood mislabelling in Australia? | 2 | ✅ |
@@ -213,7 +213,7 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | --- | --- | --- | --- | --- |
 | 1 | health | All fish has dangerous levels of mercury. | 1 | ✅ |
 | 2 | health | Farmed salmon is full of antibiotics. | 2 | ✅ |
-| 3 | health | Frozen seafood is always lower quality. | 0 | 🚨 no citationIds |
+| 3 | health | Frozen seafood is always lower quality. | 2 | ✅ |
 | 4 | health | You shouldn't eat seafood more than once a week. | 2 | ✅ |
 | 5 | sustainability | Australian fisheries are over-fished. | 1 | ✅ |
 | 6 | sustainability | All farmed shrimp is bad for mangroves. | 2 | ✅ |
@@ -221,7 +221,7 @@ Symbols: ✅ present · — missing · 🔶 soft gap · 🚨 hard problem (unsou
 | 8 | sustainability | Tuna is always over-fished. | 2 | ✅ |
 | 9 | industry | Australia barely fishes — most seafood is imported. | 2 | ✅ |
 | 10 | industry | Indigenous fishing means just customary catch. | 2 | ✅ |
-| 11 | industry | Aquaculture and wild-catch are at war. | 0 | 🚨 no citationIds |
+| 11 | industry | Aquaculture and wild-catch are at war. | 2 | ✅ |
 | 12 | labels | 'Made in Australia' means the seafood is Australian. | 2 | ✅ |
 | 13 | labels | Restaurants already have to disclose seafood origin. | 1 | ✅ |
 | 14 | labels | If it says 'snapper' in a fish & chip shop, it's snapper. | 2 | ✅ |

@@ -21,7 +21,8 @@ export const myths: MythEntry[] = [
   {
     category: "health",
     myth: "Frozen seafood is always lower quality.",
-    fact: "For most species (especially prawns and tuna), commercial blast-freezing within hours of catch preserves quality far better than 'fresh' product that spent a week travelling. The issue is freshness chain, not freezing.",
+    fact: "For most species (especially prawns and tuna), commercial blast-freezing within hours of catch preserves quality far better than 'fresh' product that spent a week in the cold chain. The issue is freshness chain, not freezing per se. Most Australian-caught prawns are snap-frozen at sea; most imported product is also frozen, but the cold-chain integrity from boat to retail is variable.",
+    citationIds: ["editorial-supply-chain", "daff-imported-food"],
   },
   {
     category: "health",
@@ -70,7 +71,8 @@ export const myths: MythEntry[] = [
   {
     category: "industry",
     myth: "Aquaculture and wild-catch are at war.",
-    fact: "They are complementary segments — aquaculture provides reliable volume (salmon, oysters, barra, mussels), wild-catch provides species and seasonality you can't farm.",
+    fact: "They are complementary segments — aquaculture provides reliable year-round volume (salmon, oysters, barra, mussels, prawns), wild-catch provides species and seasonality you can't farm (rock lobster, snapper, abalone, mud crab). Both contribute to the $3B Australian seafood GVP and have grown in parallel over the last decade.",
+    citationIds: ["frdc-economic-contribution", "abares-fisheries-stats"],
   },
 
   {

@@ -28,7 +28,8 @@ export const faqs: FaqEntry[] = [
   {
     category: "buying",
     q: "Where can I find lists of Australian-only fishmongers?",
-    a: "Our /find-australian page collects scripts to use, label clues to spot, and apps that help.",
+    a: "Our /find-australian page collects scripts to use, label clues to spot, and apps that help. From 1 July 2026 the new Cool-Fi cooked-seafood Country of Origin Information Standard will make it far easier — fishmongers, takeaways and restaurants must display whether seafood is Australian, imported, or mixed.",
+    citationIds: ["coolfi-standard", "info-standard-2025"],
   },
 
   // Labels

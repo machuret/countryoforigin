@@ -1190,13 +1190,14 @@ export const speciesDeep: Record<string, SpeciesDeepData> = {
     mediaWatch: [],
   },
 
-  /* ============================ ROCK LOBSTER ============================ */
-  "rock-lobster": {
+  /* =========================== WESTERN ROCK LOBSTER ========================== */
+  /* Panulirus cygnus — WA fishery. First MSC-certified fishery globally (2000). */
+  "western-rock-lobster": {
     stockStatus: {
       rating: "sustainable",
       year: 2024,
       citationId: "msc-wrl-2000",
-      note: "Western Rock Lobster was the first MSC-certified fishery globally (2000). Southern Rock Lobster also sustainably managed.",
+      note: "Western Rock Lobster was the first MSC-certified fishery globally (2000) and has maintained certification ever since.",
     },
     productionHistory: [
       { year: 2019, tonnes: 8500, sourceId: "abares-fisheries-stats", provenance: "primary" },
@@ -1273,5 +1274,52 @@ export const speciesDeep: Record<string, SpeciesDeepData> = {
     mediaWatch: [
       { outlet: "ABC Rural", headline: "WA rock lobster industry reshaped after China trade disruption", year: 2021, url: "https://www.abc.net.au/news/rural/", tier: "secondary" },
     ],
+  },
+
+  /* ====================== EASTERN / SOUTHERN ROCK LOBSTER ====================== */
+  /* Jasus edwardsii (Southern, TAS/VIC/SA) + Sagmariasus verreauxi (Eastern, NSW).
+     Separate stocks from Western RL (Panulirus cygnus); managed state-by-state. */
+  rocklobster: {
+    stockStatus: {
+      rating: "sustainable-rebuilding",
+      year: 2024,
+      citationId: "safs-2024",
+      note: "Southern Rock Lobster (TAS, VIC, SA) is sustainable overall; some TAS eastern-zone stocks are rebuilding under reduced TACs. Eastern Rock Lobster (NSW) is sustainable at current catch levels.",
+    },
+    productionHistory: [
+      { year: 2019, tonnes: 3700, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2020, tonnes: 3100, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2021, tonnes: 3500, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2022, tonnes: 3600, sourceId: "abares-fisheries-stats", provenance: "primary" },
+      { year: 2023, tonnes: 3650, sourceId: "abares-fisheries-stats", provenance: "estimate" },
+    ],
+    gear: [
+      { method: "Pot (baited trap)", note: "Exclusive gear across TAS, SA, VIC, NSW. Pots target legal-size lobster; undersize returned live." },
+      { method: "Recreational pot / dive", note: "Significant recreational sector in TAS and VIC under bag and size limits." },
+    ],
+    supplyChain: [
+      { step: "Pot haul (live)", days: "Day 0" },
+      { step: "Onshore holding tanks", days: "0–2" },
+      { step: "Live export or domestic wholesale", days: "1–4" },
+      { step: "Retail / restaurant (live)", days: "2–6" },
+      { step: "Total AUS days to plate (live)", days: "2–6" },
+    ],
+    regulations: {
+      sizeLimit: "110mm (TAS female), 105mm (TAS male), 104mm (SA)",
+      sourceId: "tas-nre-fisheries",
+      note: "ITQ in TAS since 1998; SA rock lobster managed under TAC + ITQ; NSW separately managed. No take of berried (egg-bearing) females across all jurisdictions.",
+    },
+    keyOperators: [
+      { name: "Southern Rocklobster Limited (SRL)", type: "peak-body", url: "https://www.southernrocklobster.com/" },
+      { name: "Tasmanian Rock Lobster Fishermen's Association", type: "peak-body", region: "TAS" },
+      { name: "Ferguson Australia", type: "processor", region: "SA", url: "https://www.fergusonaustralia.com/" },
+    ],
+    history: [
+      { year: 1962, note: "TAS rock lobster pot-licensing introduced." },
+      { year: 1998, note: "TAS moves to ITQ (Individual Transferable Quota) system — one of the first finfish/crustacean ITQs in Australia." },
+      { year: 2013, note: "TAS eastern-zone stocks identified as locally depleted; multi-year rebuilding strategy begins." },
+      { year: 2020, note: "China live-seafood trade disruption forces domestic-market pivot across all Australian lobster sectors." },
+    ],
+    mediaWatch: [],
   },
 };

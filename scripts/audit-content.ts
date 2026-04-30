@@ -54,6 +54,12 @@ function table(headers: string[], rows: Row[]): string {
   return [head, sep, body].join("\n");
 }
 
+/* ---------- ORPHAN KEYS (deep entries with no record) ---------- */
+
+const speciesOrphans = Object.keys(speciesDeep).filter(
+  (k) => !species.find((s) => s.slug === k),
+);
+
 /* ---------- SPECIES ---------- */
 
 const speciesRows: Row[] = species.map((s) => {
@@ -393,10 +399,23 @@ console.log(
 );
 console.log(`  total hard flags: ${totalHard}`);
 
-// CI mode: fail when any hard flag is present.
-if (process.argv.includes("--ci") && totalHard > 0) {
+// CI mode: fail when any hard flag is present, or when deep data is keyed
+// under a slug that no longer exists in records (silent-merge bug).
+if (speciesOrphans.length > 0) {
   console.error(
-    `\n✗ Audit failed: ${totalHard} hard flag(s). See audit/CONTENT_AUDIT.md.`,
+    `\n⚠ speciesDeep has ${speciesOrphans.length} orphan key(s) with no matching species record: ${speciesOrphans.join(", ")}`,
   );
-  process.exit(1);
+}
+
+if (process.argv.includes("--ci")) {
+  if (totalHard > 0) {
+    console.error(
+      `\n✗ Audit failed: ${totalHard} hard flag(s). See audit/CONTENT_AUDIT.md.`,
+    );
+    process.exit(1);
+  }
+  if (speciesOrphans.length > 0) {
+    console.error(`\n✗ Audit failed: orphan deep keys (listed above).`);
+    process.exit(1);
+  }
 }

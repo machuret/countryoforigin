@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { comparisons } from "@/data/comparisons";
+import { speciesBySlug } from "@/data/species";
+import { SpeciesImage } from "@/components/SpeciesImage";
 
 export const metadata: Metadata = {
   title: "Australian vs Imported Seafood Comparisons — Country of Origin",
@@ -28,14 +30,31 @@ export default function CompareIndex() {
       <section className="index-section">
         <div className="index-inner">
           <div className="index-grid">
-            {comparisons.map((c) => (
-              <Link key={c.slug} href={`/compare/${c.slug}`} className="index-card">
-                <span className="index-card-eyebrow">Comparison</span>
-                <h3>{c.name}</h3>
-                <p>{c.summary}</p>
-                <span className="arrow">View comparison →</span>
-              </Link>
-            ))}
+            {comparisons.map((c) => {
+              const sp = speciesBySlug(c.speciesSlug);
+              return (
+                <Link
+                  key={c.slug}
+                  href={`/compare/${c.slug}`}
+                  className="index-card index-card--with-image"
+                >
+                  {sp && (
+                    <div className={`index-card-img ${sp.cls}`}>
+                      <SpeciesImage
+                        slug={sp.slug}
+                        emoji={sp.emoji}
+                        alt={`${sp.name} — Australian vs imported`}
+                        variant="thumb"
+                      />
+                    </div>
+                  )}
+                  <span className="index-card-eyebrow">Comparison</span>
+                  <h3>{c.name}</h3>
+                  <p>{c.summary}</p>
+                  <span className="arrow">View comparison →</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
